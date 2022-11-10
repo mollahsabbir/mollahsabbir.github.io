@@ -1,19 +1,43 @@
 body {
-    padding-top: 80px;
+    padding-top: 40px;
+}
+
+.accent-text {
+    color: #9C27B0;
+}
+
+.accent-border{
+    border-color: #9C27B0;
+}
+
+.accent-background{
+    background-color: #9C27B0;
 }
 
 .name-container{
     padding-top:10px;
 }
 
-.card-header{
-    background-color: #3eb667;
-}
-
 a.social{
     color: black;
 }
 
-a.social:hover{
-    color: #3eb667;
+.accent-hover:hover{
+    color: #9C27B0;
+}
+
+.accent-button{
+    border-color: #9C27B0;
+}
+
+.accent-button:hover{
+    border-color: #9C27B0;
+    outline-color: #9C27B0;
+    background-color: #9C27B0;
+    color: white;
+}
+
+.padding-top-bottom{
+    padding-top: 2%;
+    padding-bottom: 2%;
 }

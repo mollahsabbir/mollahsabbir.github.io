@@ -1,5 +1,5 @@
 const ACCENT_COLOR = "#3eb667";
-const ERROR_COLOR = "#ff1010";
+const ERROR_COLOR = "#ef5350";
 
 const introMsg = "Sabbir Mollah is currently working on Assistive Technologies for visually impaired people. He is a professional with expertise in Machine Learning and Deep Learning research and development. He is currently working as a Machine Learning Engineer at Apurba Technologies Ltd."
 

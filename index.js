@@ -8,7 +8,7 @@ var startTime;
 var wrongPresses = 0;
 
 function displayStringAsChars(introMsg){
-    var introMsgTag = document.getElementById("intro_msg");
+    var introMsgTag = document.getElementById("intro-msg");
     for(let i=0; i< introMsg.length; i++){
         var char = introMsg[i];
         var charTag = document.createElement("span");
@@ -108,6 +108,18 @@ function main(){
     resetButtonElement = document.getElementById("reset-button");
     resetButtonElement.addEventListener("click", function onEvent(event) {
         onResetButtonPressed();
+    });
+
+    // Trigger mobile soft keyboard
+    var introMsgDivTag = document.getElementById("intro-msg-div");
+    var hiddenInput = document.getElementById("hiddenInput");
+    introMsgDivTag.addEventListener("click", function onEvent(event) {
+        console.log("Hello");
+        hiddenInput.style.visibility = 'visible';
+        hiddenInput.style.background = "white";
+        hiddenInput.style.border = "none";
+        hiddenInput.style.caretColor = "transparent";
+        hiddenInput.focus();
     });
 }
 

@@ -18,10 +18,6 @@ function displayStringAsChars(introMsg){
     }
 }
 
-function colorCurrentCharacter(){
-    var currentCharacterTag = 1;
-}
-
 function setWPMScore(){
     wpmScoreTag = document.getElementById("wpm-score");
     var numberOfWords = introMsg.split(" ").length;
@@ -102,6 +98,12 @@ function main(){
     gameInitialization();
 
     document.addEventListener("keypress", function onEvent(event) {
+
+        // The input box is given input to display history of typed characters
+        var hiddenInput = document.getElementById("hiddenInput");
+        hiddenInput.focus();
+
+        
         onKeyboardButtonPress(event.key);
     });
 
@@ -127,7 +129,11 @@ function main(){
     const menuToggle = document.getElementById('navbarText')
     const bsCollapse = new bootstrap.Collapse(menuToggle)
     navLinks.forEach((l) => {
-        l.addEventListener('click', () => { bsCollapse.toggle() })
+        l.addEventListener('click', () => { 
+            if(document.body.clientWidth < 1200){
+                bsCollapse.toggle()
+            } 
+        })
     })
 }
 

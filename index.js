@@ -122,7 +122,13 @@ function main(){
         hiddenInput.focus();
     });
 
-    
+    // Navbar auto collapse on click
+    const navLinks = document.querySelectorAll('.nav-item')
+    const menuToggle = document.getElementById('navbarText')
+    const bsCollapse = new bootstrap.Collapse(menuToggle)
+    navLinks.forEach((l) => {
+        l.addEventListener('click', () => { bsCollapse.toggle() })
+    })
 }
 
 main();

@@ -123,18 +123,6 @@ function main(){
         hiddenInput.style.caretColor = "transparent";
         hiddenInput.focus();
     });
-
-    // Navbar auto collapse on click
-    const navLinks = document.querySelectorAll('.nav-item')
-    const menuToggle = document.getElementById('navbarText')
-    const bsCollapse = new bootstrap.Collapse(menuToggle)
-    navLinks.forEach((l) => {
-        l.addEventListener('click', () => { 
-            if(document.body.clientWidth < 1200){
-                bsCollapse.toggle()
-            } 
-        })
-    })
 }
 
 main();

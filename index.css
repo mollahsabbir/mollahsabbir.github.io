@@ -3,15 +3,15 @@ body {
 }
 
 .accent-text {
-    color: #9C27B0;
+    color: blueviolet;
 }
 
 .accent-border{
-    border-color: #9C27B0;
+    border-color: blueviolet;
 }
 
 .accent-background{
-    background-color: #9C27B0;
+    background-color: blueviolet;
 }
 
 .name-container{
@@ -23,17 +23,17 @@ a.social{
 }
 
 .accent-hover:hover{
-    color: #9C27B0;
+    color: blueviolet;
 }
 
 .accent-button{
-    border-color: #9C27B0;
+    border-color: blueviolet;
 }
 
 .accent-button:hover{
-    border-color: #9C27B0;
-    outline-color: #9C27B0;
-    background-color: #9C27B0;
+    border-color: blueviolet;
+    outline-color: blueviolet;
+    background-color: blueviolet;
     color: white;
 }
 
@@ -43,7 +43,7 @@ a.social{
 }
 
 .link-as-button {
-    border-color: #9C27B0;
+    border-color: blueviolet;
     display: block;
     width: fit-content;
     height: fit-content;
@@ -57,8 +57,8 @@ a.social{
 }
 
 .link-as-button:hover{
-    border-color: #9C27B0;
-    outline-color: #9C27B0;
-    background-color: #9C27B0;
+    border-color: blueviolet;
+    outline-color: blueviolet;
+    background-color: blueviolet;
     color: white;
 }

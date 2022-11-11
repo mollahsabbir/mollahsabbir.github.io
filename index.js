@@ -121,6 +121,8 @@ function main(){
         hiddenInput.style.caretColor = "transparent";
         hiddenInput.focus();
     });
+
+    
 }
 
 main();

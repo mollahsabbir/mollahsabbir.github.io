@@ -154,6 +154,17 @@
         gap: 1rem;
         font-size: 0.9rem;
       }
+
+      #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: white;
+        transition: top 1s ease-in-out;
+        z-index: 1000;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
     }
   </style>
 
@@ -161,7 +172,7 @@
 
 </head>
 <body>
-  <nav>
+  <nav id="navbar">
     <a href="#about">About</a>
     <a href="#education">Education</a>
     <a href="#interests">Interests</a>
@@ -357,4 +368,21 @@
     <p>Active participation in university-level hackathons, tech fests, and student branches, focusing on innovation in machine learning and IoT.</p>
   </section>
 </body>
+<script>
+  let lastScrollY = window.scrollY;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      navbar.style.top = "-100px"; // Adjust to your navbar height
+    } else {
+      // Scrolling up
+      navbar.style.top = "0";
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+
 </html>

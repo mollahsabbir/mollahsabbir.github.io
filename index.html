@@ -1,604 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabbir Mollah - Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" href="static/logo.png" type="image/icon type">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabbir Mollah</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <!-- Add icon library -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+      max-width: 700px;
+      margin: 3rem auto 2rem;
+      padding: 0 1rem;
+    }
 
-  <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js" crossorigin="anonymous"></script>
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 0.7rem 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 100;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: #0077cc;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #e0f0ff;
+      outline: none;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    header img {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0077cc;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #111;
+    }
+
+    header p.role {
+      font-weight: 600;
+      color: #555;
+      font-size: 1.1rem;
+      margin-top: 0.1rem;
+    }
+
+    .contact {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .contact a {
+      margin-right: 1rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+      font-weight: 600;
+      color: #111;
+      font-size: 1.4rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 1.2rem;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      body {
+        margin: 1rem;
+        padding: 0 0.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header img {
+        margin-bottom: 0.5rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
-
-
-<div class="container">
-  <div class="container">
-    <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light text-center fs-5">
-      <a class="navbar-brand" style="padding-left:2%" href="#profile">Sabbir Mollah</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#intro">Intro<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experience">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#education">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#publications">Publications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#certifications">Certifications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#achievements">Achievements</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#extracurricular">Extracurricular</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#interests">Interests</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</div>
-
 <body>
-  <div class="container padding-top-bottom">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#interests">Interests</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#projects">Projects</a>
+    <a href="#extracurricular">Extracurricular</a>
+  </nav>
 
 
-    <!-- Profile Section -->
-    <div class="card border-0 padding-top-bottom">
-      <span id="profile" class="section-anchor"></span>
-      <div class="row no-gutters">
-        <div class="col-auto">
-          <img src="static/display-image.png" class="img-fluid" style="max-width: 90%;" alt="">
-        </div>
-        <div class="col">
-          <div class="card-block px-2">
-            <div style="padding-top:2%">
-              <h1 class="card-title">Sabbir Mollah</h1>
-              <h3 class="card-subtitle">Machine Learning Engineer</h3>
-              <p class="card-text">Dhaka, Bangladesh</p>
-              <a class="text-decoration-none accent-text"
-                href="mailto:sabbir.mollah@northsouth.edu">sabbir.mollah@northsouth.edu</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
-    <!-- Intro Section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="intro" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Intro</b> (Find your typing speed here!)
-        </div>
-        <div class="card-body display-6" id="intro-msg-div">
-          <span id="intro-msg">
-            <!--This part will be filled by index.js-->
-          </span>
-        </div>
-        <div class="card-footer bg-transparent">
-          WPM : <span id="wpm-score"> 0 </span> &nbsp;&nbsp;&nbsp;
-          Accuracy : <span id="accuracy-score"> 0 </span>%
-          <input id="hiddenInput">
-          <button id="reset-button" class="btn accent-button btn-sm float-end">Restart</button>
-        </div>
-      </div>
-    </div>
+<header style="display: flex; align-items: flex-start; flex-wrap: wrap; gap: 20px; max-width: 100%; padding-top: 24px;">
+  <!-- Profile Image -->
+  <img src="static/display-image.jpg" alt="Sabbir's Photo"
+       style="width: 140px; height: 140px; border-radius: 50%; flex-shrink: 0;" />
 
-    <!-- Social icons Section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <div class="card accent-border">
-        <div class="card-body display-6 text-center">
-          <div class="row">
-            <div class="social-media">
-              <a class="social accent-hover" target="_blank" href="https://www.linkedin.com/in/mollahsabbir"><i
-                  class="bi bi-linkedin"></i></a>
-              <a class="social accent-hover" target="_blank" href="https://github.com/mollahsabbir"><i
-                  class="bi bi-github"></i></i></a>
-              <a class="social accent-hover" target="_blank" href="https://www.facebook.com/mollahsabbir/"><i
-                  class="bi bi-facebook"></i></a>
-              <a class="social accent-hover" target="_blank" href="https://medium.com/@mollahsabbir"><i
-                  class="bi bi-medium"></i></a>
-            </div>
-          </div>
+  <!-- Name and Info -->
+  <div style="flex: 1; min-width: 250px;">
+    <h1 style="margin: 0;">Sabbir Mollah</h1>
+    <p class="role" style="margin: 2px 0;">PhD Student | CRCV Lab | University of Central Florida</p>
 
-          <div class="d-flex justify-content-center">
-            <a class="btn link-as-button" style="margin-top:15px" href="static/SabbirMollah_CV.pdf" target="_blank">View
-              my Curriculumn Vitae</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Experience section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="experience" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Experience</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">Apurba Technologies Ltd.</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">Software Engineer, Machine Learning</p>
-                  <p class="card-text text-muted">Sep 2022 - Present, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">My primary responsibilities in this job are designing,
-                      developing, researching and documenting <b>Machine Learning based solutions</b>.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">Apurba‑NSU R&D Lab</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">Part-Time Research Assistant</p>
-                  <p class="card-text text-muted">Sep 2021 - Aug 2022, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Published a paper which improves performance of OCR models on
-                      morphologically languages like Bangla.</li>
-                    <li class="list-group-item border-0">Worked with several NLP based projects.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">ECE Department, North South University</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">Part-Time Lab Instructor</p>
-                  <p class="card-text text-muted">Spring 2022 & Summer 2022, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Taught Database Management Systems (DBMS) using SQL and
-                      Object‑Oriented Programming (OOP) using Java to an average class size of 40 students.</li>
-                    <li class="list-group-item border-0">Prepared lab materials and provided exam questions; examined
-                      students’ answer scripts.
-                    </li>
-                    <li class="list-group-item border-0">Provided assessment and guidance to students as they worked on
-                      their projects.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Education section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="education" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Education</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">North South University</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">B.S. In Computer Science and Engineering</p>
-                  <p class="card-text text-muted">Jan 2017 - May 2021, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Graduated with Magna Cum Laude distinction, CGPA ‑
-                      <b>3.73</b>/4.00</li>
-                    <li class="list-group-item border-0">Thesis title: Domain Adaptation on Speaker Recognition Problem
-                      with RawNet.</li>
-                    <li class="list-group-item border-0">Relevant Courses: Pattern Recognition and Neural Network,
-                      Natural Language Processing, Introduction to Linear Algebra.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">BAF Shaheen College Kurmitola</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">HSC - Higher Secondary Certificate</p>
-                  <p class="card-text text-muted">2014 - 2016, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">GPA: <b>5.00</b>/5.00</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">Rajoir Gopalgonj KJS Pilot Institution</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">SSC - Secondary School Certificate</p>
-                  <p class="card-text text-muted">2012 - 2014, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">GPA: <b>5.00</b>/5.00.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Publication section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="publications" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Publications</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">LILA-BOTI : Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition. [ <a href="https://arxiv.org/abs/2205.11420" target="_blank">PDF</a> ]</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">ICPR: International Conference on Pattern Recognition 2022</p>
-                  <p class="card-text text-muted">August 21-25, 2022 • Montréal Québec</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0"><b>Abstract:</b> Word-level handwritten optical character recognition (OCR) remains a challenge for morphologically rich languages like Bangla. The complexity arises from the existence of a large number of alphabets, the presence of several diacritic forms, and the appearance of complex conjuncts. The difficulty is exacerbated by the fact that some graphemes occur infrequently but remain indispensable, so addressing the class imbalance is required for satisfactory results. This paper addresses this issue by introducing two knowledge distillation methods: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights (LILA-BOTI) and Super Teacher LILA-BOTI. In both cases, a Convolutional Recurrent Neural Network (CRNN) student model is trained with the dark knowledge gained from a printed isolated character recognition teacher model. We conducted inter-dataset testing on <i>BN-HTRd</i> and <i>BanglaWriting</i> as our evaluation protocol, thus setting up a challenging problem where the results would better reflect the performance on unseen data. Our evaluations achieved up to a 3.5% increase in the F1-Macro score for the minor classes and up to 4.5% increase in our overall word recognition rate when compared with the base model (No KD) and conventional KD.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Skills section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="skills" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Skills</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <table class="table table-striped">
-                    <tbody>
-                      <tr>
-                        <td>Programming</td>
-                        <td>Proficient in Python, C, C++ and Java. Knows C#, PHP and Javascript.</td>
-                      </tr>
-                      <tr>
-                        <td>Development</td>
-                        <td>Proficient in Clean Coding concepts and Object Oriented Design Patterns</td>
-                      </tr>
-                      <tr>
-                        <td>Machine Learning</td>
-                        <td>Experience working with PyTorch, Keras, scikit‑learn, pandas, pyspark and matplotlib.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Database</td>
-                        <td>Intermediate to advanced level Database Management System knowledge using MySQL.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Version Controlling</td>
-                        <td>Well‑read on the best practices of Version Controlling using Git</td>
-                      </tr>
-                      <tr>
-                        <td>Communications</td>
-                        <td>A skilled communicator who is comfortable speaking in public and writing papers.</td>
-                      </tr>
-                      <tr>
-                        <td>Languages</td>
-                        <td>Bangla, English and Italian.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certifications section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="certifications" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Certifications</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <table class="table table-striped">
-                    <thead>
-                      <th>Certificate</th>
-                      <th>Provider</th>
-                      <th>Issue Date</th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="https://coursera.org/share/97b1d987e9118f0a5b15eaf5fa2993aa" target="_blank">Deep Learning Specialization</a></td>
-                        <td>Coursera</td>
-                        <td>November 29, 2020</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://coursera.org/share/1a606d06b770464a0c7cd82298bf5c1c" target="_blank">Machine Learning</a></td>
-                        <td>Coursera</td>
-                        <td>July 21, 2020</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://coursera.org/share/d592731637ebde7b1dfac494920b25f7" target="_blank">Introduction to Philosophy</a></td>
-                        <td>Coursera</td>
-                        <td>August 8, 2020</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Achievements section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="achievements" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Achievements</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-block px-2">
-                        <div style="padding-top:2%">
-                          <h3 class="card-title">Robi Datathon 2.0</h3>
-                          <p class="card-subtitle" style="color:blueviolet;">Finalists</p>
-                          <p class="card-text text-muted">Robi, Axiata Ltd., 2022, Dhaka, Bangladesh</p>
-                          <ul class="list-group">
-                            <li class="list-group-item border-0">Among top 25 out of 384 teams.</li>
-                            <li class="list-group-item border-0">Plotted geographic maps using geospatial data.</li>
-                            <li class="list-group-item border-0">Optimized pyspark queries for faster queries on large data.</li>
-                            <li class="list-group-item border-0">Implemented cost sensitive learning to bump performance of a machine learning model.</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-block px-2">
-                        <div style="padding-top:2%">
-                          <h3 class="card-title">MIST Inter‑University ICT Innovation Fest Hackathon</h3>
-                          <p class="card-subtitle" style="color:blueviolet;">Champions</p>
-                          <p class="card-text text-muted">MIST, 2021, Dhaka, Bangladesh</p>
-                          <ul class="list-group">
-                            <li class="list-group-item border-0">Deployed a handwriting recognition model.</li>
-                            <li class="list-group-item border-0">Designed a handwriting identification model.
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-block px-2">
-                        <div style="padding-top:2%">
-                          <h3 class="card-title">IOT For Tomorrow</h3>
-                          <p class="card-subtitle" style="color:blueviolet;">First Runners Up</p>
-                          <p class="card-text text-muted">NSU IEEE Student Branch, 2019, Dhaka, Bangladesh</p>
-                          <ul class="list-group">
-                            <li class="list-group-item border-0">Presented a fire detection circuit using a microcontroller integrated with Firebase.</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-block px-2">
-                        <div style="padding-top:2%">
-                          <h3 class="card-title">Electrathon</h3>
-                          <p class="card-subtitle" style="color:blueviolet;">2nd Runners Up</p>
-                          <p class="card-text text-muted">NSU IEEE Student Branch, 2018, Dhaka, Bangladesh</p>
-                          <ul class="list-group">
-                            <li class="list-group-item border-0">Written a python automation script using selenium.</li>
-                            <li class="list-group-item border-0">Built an Arduino solution to the given problem</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-block px-2">
-                        <div style="padding-top:2%">
-                          <h3 class="card-title">National Talent Hunt </h3>
-                          <p class="card-subtitle" style="color:blueviolet;">Best Talent in Computer and Math in Madaripur</p>
-                          <p class="card-text text-muted">Bangladesh Education Ministry, 2012, Dhaka, Bangladesh</p>
-                          <ul class="list-group">
-                            <li class="list-group-item border-0">Participated in a series of competitive tests on Mathematics and Computer Science up to District level.</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="projects" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Projects</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">North South University</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">B.S. In Computer Science and Engineering</p>
-                  <p class="card-text text-muted">Jan 2017 - May 2021, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Graduated with Magna Cum Laude distinction, CGPA ‑
-                      <b>3.73</b>/4.00</li>
-                    <li class="list-group-item border-0">Thesis title: Domain Adaptation on Speaker Recognition Problem
-                      with RawNet.</li>
-                    <li class="list-group-item border-0">Relevant Courses: Pattern Recognition and Neural Network,
-                      Natural Language Processing, Introduction to Linear Algebra.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Extracurricular section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="extracurricular" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Extracurricular</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">North South University</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">B.S. In Computer Science and Engineering</p>
-                  <p class="card-text text-muted">Jan 2017 - May 2021, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Graduated with Magna Cum Laude distinction, CGPA ‑
-                      <b>3.73</b>/4.00</li>
-                    <li class="list-group-item border-0">Thesis title: Domain Adaptation on Speaker Recognition Problem
-                      with RawNet.</li>
-                    <li class="list-group-item border-0">Relevant Courses: Pattern Recognition and Neural Network,
-                      Natural Language Processing, Introduction to Linear Algebra.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Interests section -->
-    <div class="row-justify-content-md padding-top-bottom">
-      <span id="interests" class="section-anchor"></span>
-      <div class="card accent-border">
-        <div class="card-header text-light accent-background">
-          <b>Interests</b>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col">
-              <div class="card-block px-2">
-                <div style="padding-top:2%">
-                  <h3 class="card-title">North South University</h3>
-                  <p class="card-subtitle" style="color:blueviolet;">B.S. In Computer Science and Engineering</p>
-                  <p class="card-text text-muted">Jan 2017 - May 2021, Dhaka, Bangladesh</p>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0">Graduated with Magna Cum Laude distinction, CGPA ‑
-                      <b>3.73</b>/4.00</li>
-                    <li class="list-group-item border-0">Thesis title: Domain Adaptation on Speaker Recognition Problem
-                      with RawNet.</li>
-                    <li class="list-group-item border-0">Relevant Courses: Pattern Recognition and Neural Network,
-                      Natural Language Processing, Introduction to Linear Algebra.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+    <p class="contact" style="margin: 4px 0;">
+      📍 Orlando, Florida<br>
+      ✉️ <a href="mailto:mollahsabbir@gmail.com">mollahsabbir [at] gmail [dot] com</a><br>
+      ✉️ <a href="mailto:sabbir.mollah@ucf.edu">sabbir.mollah [at] ucf [dot] edu</a>
+    </p>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-</body>
 
+  <!-- Social Links Full Width -->
+  <div style="flex-basis: 100%; margin-top: 10px; font-size: 0.95rem;">
+    <a href="https://linkedin.com/in/mollahsabbir" target="_blank" style="margin-right: 12px; text-decoration: none; color: #0077b5;">
+      <i class="bi bi-linkedin" style="margin-right: 4px;"></i>LinkedIn
+    </a> |
+    <a href="https://scholar.google.com/citations?user=XRGB2UcAAAAJ" target="_blank" style="margin: 0 12px; text-decoration: none; color: #4285F4;">
+      <i class="bi bi-google" style="margin-right: 4px;"></i>Google Scholar
+    </a> |
+    <a href="https://github.com/mollahsabbir" target="_blank" style="margin: 0 12px; text-decoration: none; color: #333;">
+      <i class="bi bi-github" style="margin-right: 4px;"></i>GitHub
+    </a> |
+    <a href="https://medium.com/@mollahsabbir" target="_blank" style="margin: 0 12px; text-decoration: none; color: #000;">
+      <i class="bi bi-medium" style="margin-right: 4px;"></i>Medium
+    </a> |
+    <a href="static/SabbirMollah_CV.pdf" target="_blank" style="margin-left: 12px; text-decoration: none; background: #0077cc; color: white; padding: 4px 8px; border-radius: 4px;">
+      <i class="bi bi-file-earmark-person" style="margin-right: 4px;"></i>CV
+    </a>
+  </div>
+</header>
+
+
+
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Working on improving Unified Models that both understand and generate multimodal data. Interested in working with Visual Language Models in General. Currently working as a Graduate Research Assistant at University of Central Florida.</p>
+  </section>
+
+  <section id="education">
+
+    <h2>Education</h2>
+    <p><strong>University of Central Florida</strong><br />
+      Pursuing PhD in Computer Science<br />
+      Aug 2024 - Current, Orlando, Florida<br />
+      Research Area: Computer Vision, Multimodal Learning, Visual Language Models<br />
+      Supervisor: <a href="https://www.crcv.ucf.edu/person/mubarak-shah/" target="_blank">Dr. Mubarak Shah</a><br/>
+      Lab: <a href="https://www.crcv.ucf.edu/" target="_blank">Center for Research in Computer Vision (CRCV)</a></p>
+
+    <p><strong>North South University</strong><br />
+      B.S. In Computer Science and Engineering<br />
+      Jan 2017 - May 2021, Dhaka, Bangladesh<br />
+      Graduated with Magna Cum Laude distinction, CGPA 3.73/4.00<br />
+      Thesis: Domain Adaptation on Speaker Recognition Problem with RawNet<br />
+      Relevant Courses: Pattern Recognition and Neural Network, Natural Language Processing, Introduction to Linear Algebra.</p>
+
+    <!-- <p><strong>BAF Shaheen College Kurmitola</strong><br />
+      HSC - Higher Secondary Certificate<br />
+      2014 - 2016, Dhaka, Bangladesh<br />
+      GPA: 5.00/5.00</p>
+
+    <p><strong>Rajoir Gopalgonj KJS Pilot Institution</strong><br />
+      SSC - Secondary School Certificate<br />
+      2012 - 2014, Dhaka, Bangladesh<br />
+      GPA: 5.00/5.00</p> -->
+  </section>
+
+  <section id="interests">
+    <h2>Interests</h2>
+    <ul>
+      <li>Machine Learning & Deep Learning</li>
+      <li>Natural Language Processing (NLP)</li>
+      <li>Computer Vision & OCR for Morphological Languages</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <p><em>LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition</em>. ICPR 2022, Montréal Québec.</p>
+    <p>Abstract: Word-level handwritten OCR remains a challenge for morphologically rich languages like Bangla. This paper introduces two knowledge distillation methods improving performance on minor classes and overall word recognition rates. Evaluations showed up to 4.5% increase in recognition rate compared to base models.</p>
+    <p><a href="https://arxiv.org/abs/2208.XXXXX" target="_blank" rel="noopener">[PDF]</a></p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="experience-item">
+    <h3>BKASH Limited</h3>
+    <p class="job-title">Machine Learning Engineer</p>
+    <p class="job-location-date">Dhaka, Bangladesh</p>
+    <ul>
+      <li>Extract information from printed documents.</li>
+      <li>Fraud prevention system using a graph database.</li>
+      <li>Predict missing post office names from user data.</li>
+      <li>Comprehensive English to Bangla machine transliteration.</li>
+      <li>Loan repayment model and loan risk assessment using Julia.</li>
+      <li>Backend features using Reactive Programming Paradigm to enable human-agent-assisted services.</li>
+    </ul>
+  </div>
+
+    <p><strong>Apurba Technologies Ltd.</strong><br />
+      Software Engineer, Machine Learning<br />
+      Sep 2022 - Present, Dhaka, Bangladesh<br />
+      My primary responsibilities include designing, developing, researching, and documenting machine learning-based solutions.</p>
+
+    <p><strong>Apurba‑NSU R&D Lab</strong><br />
+      Part-Time Research Assistant<br />
+      Sep 2021 - Aug 2022, Dhaka, Bangladesh<br />
+      Published a paper improving OCR model performance on morphologically rich languages like Bangla.<br />
+      Worked on several NLP-based projects.</p>
+
+    <p><strong>ECE Department, North South University</strong><br />
+      Part-Time Lab Instructor<br />
+      Spring 2022 & Summer 2022, Dhaka, Bangladesh<br />
+      Taught Database Management Systems (SQL) and Object-Oriented Programming (Java) to classes of ~40 students.<br />
+      Prepared lab materials, exam questions, and assessed student projects.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Programming:</strong> Python, C, C++, Java; familiar with C#, PHP, JavaScript.</li>
+      <li><strong>Development:</strong> Clean Coding, Object-Oriented Design Patterns.</li>
+      <li><strong>Machine Learning:</strong> PyTorch, Keras, scikit-learn, pandas, pyspark, matplotlib.</li>
+      <li><strong>Database:</strong> Intermediate to advanced MySQL.</li>
+      <li><strong>Version Control:</strong> Git best practices.</li>
+      <li><strong>Communications:</strong> Skilled in public speaking and paper writing.</li>
+      <li><strong>Languages:</strong> Bangla, English, Italian.</li>
+    </ul>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Deep Learning Specialization - Coursera, November 29, 2020</li>
+      <li>Machine Learning - Coursera, July 21, 2020</li>
+      <li>Introduction to Philosophy - Coursera, August 8, 2020</li>
+    </ul>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <p><strong>Robi Datathon 2.0</strong> – Finalists<br />
+      Robi, Axiata Ltd., 2022, Dhaka<br />
+      Top 25 out of 384 teams. Worked with geospatial data, optimized pyspark queries, and implemented cost-sensitive learning to improve model performance.</p>
+
+    <p><strong>MIST Inter-University ICT Innovation Fest Hackathon</strong> – Champions<br />
+      MIST, 2021, Dhaka<br />
+      Developed handwriting recognition and identification models.</p>
+
+    <p><strong>IOT For Tomorrow</strong> – First Runners Up<br />
+      NSU IEEE Student Branch, 2019, Dhaka<br />
+      Presented a fire detection circuit with microcontroller integration to Firebase.</p>
+
+    <p><strong>Electrathon</strong> – 2nd Runners Up<br />
+      NSU IEEE Student Branch, 2018, Dhaka<br />
+      Created python automation using Selenium and an Arduino-based solution.</p>
+
+    <p><strong>National Talent Hunt</strong> – Best Talent in Computer and Math<br />
+      Bangladesh Education Ministry, 2012, Dhaka<br />
+      Participated in district-level competitive tests in Mathematics and Computer Science.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p><strong>B.S. Thesis:</strong> Domain Adaptation on Speaker Recognition Problem with RawNet</p>
+    <p>Other coursework projects related to pattern recognition, NLP, and linear algebra.</p>
+  </section>
+
+  <section id="extracurricular">
+    <h2>Extracurricular Activities</h2>
+    <p>Active participation in university-level hackathons, tech fests, and student branches, focusing on innovation in machine learning and IoT.</p>
+  </section>
+</body>
 </html>

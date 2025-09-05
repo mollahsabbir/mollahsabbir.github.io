@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semantic Drift in Unified Models</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    nav#navbar {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 0.7rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      z-index: 1000;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: #0077cc;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #e0f0ff;
+      outline: none;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+      font-weight: 600;
+      color: #111;
+      font-size: 1.4rem;
+    }
+
+    p,
+    li {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 1.2rem;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 0.8rem;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+      }
+
+      nav#navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a href="#highlights">Highlights</a>
+    <a href="#installation">Installation</a>
+    <a href="#usage">Usage</a>
+    <a href="#citation">Citation</a>
+  </nav>
+
+  <!-- Banner Image -->
+
+  <!-- Highlights -->
+  <section id="highlights">
+    <h2>🏆 Highlights</h2>
+    <p><b>Figure:</b> Information can be lost in different ways during a cyclic inference. In the first row, the model ignores the
+      position of the clock, which is a crucial detail. In the second row, the model changes a baseball bat into a spoon. A
+      model can also change the style from realistic to cartoon, as shown in the third row. In the fourth row the model
+      loses count of four clocks and generates lots of clocks instead. In the fifth row a whole city is hallucinated around
+      an empty road. In the sixth row, the model changes a brown bus into a yellow bus.</p>
+    <p><b>Abstract:</b> Employing a single, unified model (UM) for both visual understanding (I2T) and visual generation (T2I)
+      opens a new direction in Visual Language Model research. UCF-UM introduces cyclic evaluation to quantify semantic drift.
+      Metrics include Mean Cumulative Drift (MCD), Semantic Drift Rate (SDR), and Multi-Generation GenEval (MGG). Our results
+      reveal substantial variation in cross-modal stability across models.</p>
+  </section>
+
+  <img src="static/semantic_drift.png" alt="Semantic Drift Banner">
+
+
+  <!-- Installation -->
+  <section id="installation">
+    <h2>Installation</h2>
+    <pre><code>git clone https://github.com/mollahsabbir/Semantic-Drift-in-Unified-Models
+cd Semantic-Drift-in-Unified-Models
+pip install -r requirements.txt
+    </code></pre>
+  </section>
+
+  <!-- Usage -->
+  <section id="usage">
+    <h2>💻 Usage</h2>
+    <p>Evaluation data should be organized as follows:</p>
+    <pre><code>&lt;evaluation_data_root&gt;/
+├── captions-first/
+│   ├── gen-0.csv
+│   ├── gen-1/
+│   │   ├── image1.png
+│   │   ├── image2.png
+│   │   ├── image3.png
+│   ├── ...
+└── images-first/
+    </code></pre>
+    <p>Then run:</p>
+    <pre><code>python measure-drift.py -data &lt;path-to-evaluation-data&gt; -out &lt;path-to-output-folder&gt;</code></pre>
+  </section>
+
+  <!-- Citation -->
+  <section id="citation">
+    <h2>📜 Citation</h2>
+    <pre><code>@misc{mollah2025telephonegameevaluatingsemantic,
+  title={The Telephone Game: Evaluating Semantic Drift in Unified Models}, 
+  author={Sabbir Mollah et al.},
+  year={2025},
+  eprint={2509.04438},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2509.04438}, 
+}</code></pre>
+  </section>
+
+</body>
+<script>
+  let lastScrollY = window.scrollY;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY) {
+      navbar.style.top = "-100px";
+    } else {
+      navbar.style.top = "0";
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</html>

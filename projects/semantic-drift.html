@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -24,7 +24,8 @@
       line-height: 1.6;
       background-color: #fff;
       color: #222;
-      max-width: 700px;
+      max-width: 1600px;
+      width: 90%;
       margin: 2rem auto;
       padding: 0 1rem;
     }
@@ -41,7 +42,7 @@
       gap: 1rem;
       z-index: 1000;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1.2rem;
     }
 
     nav a {
@@ -75,19 +76,19 @@
       margin-top: 2rem;
       font-weight: 600;
       color: #111;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
     }
 
     p,
     li {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-bottom: 0.8rem;
-      color: #444;
+      color: #111;
     }
 
     ul {
       list-style-type: disc;
-      margin-left: 1.2rem;
+      margin-left: 1.6rem;
     }
 
     pre {
@@ -95,6 +96,16 @@
       padding: 0.8rem;
       overflow-x: auto;
       border-radius: 4px;
+    }
+
+    .banner {
+      display: block;
+      margin: 2rem auto;
+      max-width: 75%;
+      /* changed from 100% to 75% */
+      width: 50%;
+      /* allows scaling down on smaller screens */
+      border-radius: 8px;
     }
 
     @media (max-width: 480px) {
@@ -115,36 +126,166 @@
   </style>
 </head>
 
-<body>
 
+<header style="text-align:center; margin:2rem 0;">
+  <h1 style="font-size:2.5rem; font-weight:700; color:#111; line-height:1.2;">
+    The Telephone Game: Evaluating Semantic Drift in Unified Models
+  </h1>
+</header>
+
+<body>
   <nav id="navbar">
     <a href="#highlights">Highlights</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#evaluation">Evaluation</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#findings">Findings</a>
+    <a href="#results">Results</a>
     <a href="#installation">Installation</a>
     <a href="#citation">Citation</a>
-    <a href="https://github.com/mollahsabbir/Semantic-Drift-in-Unified-Models" target="_blank">GitHub</a>
-    <a href="https://arxiv.org/abs/2509.04438v1" target="_blank">Paper</a>
+    <a href="#authors">Authors</a>
   </nav>
+
+  <div class="action-buttons" style="text-align:center; margin:1rem 0;">
+    <a href="https://github.com/mollahsabbir/Semantic-Drift-in-Unified-Models" target="_blank"
+      style="display:inline-block; margin:0.5rem; padding:0.6rem 1.2rem; background-color:#0077cc; color:#fff; text-decoration:none; border-radius:5px; font-weight:600;">
+      <i class="bi bi-github"></i> GitHub
+    </a>
+    <a href="https://arxiv.org/abs/2509.04438v1" target="_blank"
+      style="display:inline-block; margin:0.5rem; padding:0.6rem 1.2rem; background-color:#e74c3c; color:#fff; text-decoration:none; border-radius:5px; font-weight:600;">
+      <i class="bi bi-file-earmark-text"></i> ArXiv
+    </a>
+  </div>
 
   <section id="highlights">
     <h2>🏆 Highlights</h2>
-    <img src="../static/semantic_drift.png" alt="Semantic Drift Banner" class="banner">
-    <p><b>Figure:</b> Information can be lost in different ways during a cyclic inference. In the first row, the model ignores the
-      position of the clock, which is a crucial detail. In the second row, the model changes a baseball bat into a spoon. A
-      model can also change the style from realistic to cartoon, as shown in the third row. In the fourth row the model
-      loses count of four clocks and generates lots of clocks instead. In the fifth row a whole city is hallucinated around
-      an empty road. In the sixth row, the model changes a brown bus into a yellow bus.</p>
-    <p><b>Abstract:</b> Employing a single, unified model (UM) for both visual understanding (I2T) and visual generation (T2I)
-      opens a new direction in Visual Language Model research. UCF-UM introduces cyclic evaluation to quantify semantic drift.
-      Metrics include Mean Cumulative Drift (MCD), Semantic Drift Rate (SDR), and Multi-Generation GenEval (MGG). Our results
-      reveal substantial variation in cross-modal stability across models.</p>
+    <p>04 Sep 2025 - Uploaded to <b>arXiv</b></p>
   </section>
 
-  <section id="installation">
-    <h2>Installation</h2>
-    <pre><code>git clone https://github.com/mollahsabbir/Semantic-Drift-in-Unified-Models
-cd Semantic-Drift-in-Unified-Models
-pip install -r requirements.txt
-    </code></pre>
+
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/SemanticDrift-teaser_v2.png" alt="Semantic Drift Types" class="banner"
+        style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        (a) Illustrates image generation and image understanding functionalities of a unified model.
+        (b) Example evaluation using our proposed UCF-UM framework. In this example the unified model starts from a
+        textual
+        initial prompt about a suitcase and a banana. After successive T2I and I2T steps we observe in
+        generation 5 the model fails to generate a convincing suitcase, and subsequently the suitcase disappeared from
+        future generations. Also, at generation 5 it created two bananas instead of one, which culminated in lots of
+        bananas in generation 7 and forward.
+      </figcaption>
+    </figure>
+
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Unified Models (UMs) combine text-to-image (T2I) and image-to-text (I2T) tasks under a single
+              architecture. While promising, these models often drift in meaning when cycling between modalities, a
+              problem missed by existing single-pass metrics. Existing evaluations consider these capabilities in
+              isolation: FID and GenEval for T2I, and benchmarks
+              such as MME, MMBench for I2T. These single-pass metrics do not reveal whether a model that
+              understands a concept can also render it, nor whether meaning is preserved when cycling between
+              image and text modalities. To address this, we introduce the <b>Unified Consistency Framework
+                (UCF-UM)</b>, a cyclic evaluation protocol that
+              alternates T2I and I2T over multiple generations, exposing semantic drift in a "Telephone Game" style.
+
+              Our experiments reveal substantial variation in cross-modal stability: some models like BAGEL maintain
+              meaning over many cycles, while others drift quickly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <h2>Our Evaluation Framework (UCF-UM)</h2>
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/SemanticDrift-eval_framework.png" alt="UCF-UM" class="banner"
+        style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        An example of our embedding level evaluations.
+      </figcaption>
+    </figure>
+
+    <p>In our evaluation framework we explore both embedding level drift by leveraging models like clip, and object
+      level drift by using the GenEval framework. The basic idea is to iteratively perform I2T and T2I operations on the
+      initial data to create chains.Then, we can either measure the embedding level distance of each generation, or
+      detect the object in the images to determine the object level drift. </p>
+
+  </section>
+
+  <section id="motivation">
+    <h2>Motivation</h2>
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/SemanticDrift-inconsistency.png" alt="Example of unified inconsistency."
+        class="banner" style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        Example of unified inconsistency in a unified model.
+      </figcaption>
+    </figure>
+
+    <p>If a unified model is capable of understanding a concept, one may expect it to also be able to generate it. For
+      example, given the picture of a chessboard a UM might
+      correctly describe which side is winning on the oard but then fail to generate a board that matches the same
+      condition. We call this behavior unified inconsistency. For a model to be consistent the gap between the concepts
+      it can understand and the concepts it can generate need to lessen. Current evaluation frameworks don't consider
+      this mismatch. </p>
+  </section>
+
+  <section id="findings">
+    <h2>Findings</h2>
+
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/SemanticDrift-types.png" alt="Examples of semantic drift." class="banner"
+        style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        Example of unified inconsistency in a unified model.
+      </figcaption>
+    </figure>
+
+    <p>Information can be lost in different ways during a cyclic inference. In the first row, the model ignores the
+      position of the clock, which is a crucial detail. In the second row, the model changes a baseball bat into a
+      spoon. A model can also change the style from realistic to cartoon, as shown in the third row. In the fourth row
+      the model loses count of four clocks and generates lots of clocks instead. In the fifth row a whole city is
+      hallucinated around an empty road. In the sixth row, the model changes a brown bus into a yellow bus.</p>
+  </section>
+
+  <section id="results">
+    <h2>Results</h2>
+
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/2._all_models_scores_captions-first_text_mpnet_text_-nocapsdocci_grid.jpg.png"
+        alt="Examples of semantic drift." class="banner" style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        Embedding level image to image drift across generations (Using Dino).
+      </figcaption>
+    </figure>
+
+    <p>Empirical results from our embedding level analysis show the scores obtained from shows the dino distances from
+      the input image to the later generated images. In the
+      ideal case, the similarities should
+      remain nearly constant across generations. Instead, as shown in this plot we observe consistent degradation in
+      semantic fidelity</p>
+
+    <figure style="text-align:center; margin:2rem 0;">
+      <img src="../static/semantic-drift/model_ranking.png" alt="Model ranking." class="banner" style="width:75%;">
+      <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
+        Ranking from our embedding level, and object level evaluations.
+      </figcaption>
+    </figure>
+
+    <p>Comparison across embedding level and object level evaluations show that BAGEL achieves the highest performance
+      on both metrics.
+      LLaVA+SDXL and Janus 1.3B demonstrate strength in one metric but underperform in the
+      other. VILA-U underperforms in both.</p>
   </section>
 
   <section id="citation">
@@ -160,17 +301,41 @@ pip install -r requirements.txt
 }</code></pre>
   </section>
 
+
+  <section id="authors" style="text-align:center; margin:2rem 0;">
+    <h2 style="font-size:1.6rem;">Authors</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem; font-size:1.2rem;">
+      <a href="https://mollahsabbir.com" target="_blank">Sabbir Mollah</a>
+      <span>&middot;</span>
+      <a href="https://www.rohitg.xyz/" target="_blank">Rohit Gupta</a>
+      <span>&middot;</span>
+      <a href="https://swetha5.github.io/" target="_blank">Sirnam Swetha</a>
+      <span>&middot;</span>
+      <a href="https://www.crcv.ucf.edu/people/students/" target="_blank">Qingyang Liu</a>
+      <span>&middot;</span>
+      <a href="https://ahnaf1393.github.io/" target="_blank">Ahnaf Munir</a>
+      <span>&middot;</span>
+      <a href="https://www.crcv.ucf.edu/person/mubarak-shah/" target="_blank">Mubarak Shah</a>
+    </div>
+    <p style="font-size:0.9rem; color:#555; margin-top:0.5rem;">
+      Equally contributing second authors: Rohit Gupta & Sirnam Swetha <br>
+      Equally contributing third authors: Qingyang Liu & Ahnaf Munir
+    </p>
+    <p style="margin-top:0.3rem;">
+      <a href="https://www.crcv.ucf.edu/" target="_blank">Center for Research in Computer Vision, University of Central
+        Florida, USA</a>
+    </p>
+  </section>
+
 </body>
+
 <script>
   let lastScrollY = window.scrollY;
   const navbar = document.getElementById('navbar');
-
   window.addEventListener('scroll', () => {
     if (window.scrollY > lastScrollY) {
       navbar.style.top = "-100px";
-    } else {
-      navbar.style.top = "0";
-    }
+    } else { navbar.style.top = "0"; }
     lastScrollY = window.scrollY;
   });
 </script>

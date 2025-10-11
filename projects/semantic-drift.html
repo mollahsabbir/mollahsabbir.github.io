@@ -170,12 +170,11 @@
         style="width:75%;">
       <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
         (a) Illustrates image generation and image understanding functionalities of a unified model.
-        (b) Example evaluation using our proposed UCF-UM framework. In this example the unified model starts from a
-        textual
-        initial prompt about a suitcase and a banana. After successive T2I and I2T steps we observe in
-        generation 5 the model fails to generate a convincing suitcase, and subsequently the suitcase disappeared from
-        future generations. Also, at generation 5 it created two bananas instead of one, which culminated in lots of
-        bananas in generation 7 and forward.
+        (b) Telephone Game: We propose a new form of evaluation consisting of alternating T2I and I2T steps. Here,
+        the unified model starts from a textual prompt about a suitcase and a banana. At every step we
+        observe semantic drift. For example, in the 5th generation, the model fails to generate a convincing
+        suitcase, which also hints at cross-inconsistency. These phenomena are magnified under the multi-generation
+        telephone game evaluation, allowing it to capture more subtle performance differences between models.
       </figcaption>
     </figure>
 
@@ -185,18 +184,24 @@
         <div class="column is-six-fifths">
           <div class="content has-text-justified">
             <p>
-              Unified Models (UMs) combine text-to-image (T2I) and image-to-text (I2T) tasks under a single
-              architecture. While promising, these models often drift in meaning when cycling between modalities, a
-              problem missed by existing single-pass metrics. Existing evaluations consider these capabilities in
-              isolation: FID and GenEval for T2I, and benchmarks
-              such as MME, MMBench for I2T. These single-pass metrics do not reveal whether a model that
-              understands a concept can also render it, nor whether meaning is preserved when cycling between
-              image and text modalities. To address this, we introduce the <b>Unified Consistency Framework
-                (UCF-UM)</b>, a cyclic evaluation protocol that
-              alternates T2I and I2T over multiple generations, exposing semantic drift in a "Telephone Game" style.
-
-              Our experiments reveal substantial variation in cross-modal stability: some models like BAGEL maintain
-              meaning over many cycles, while others drift quickly.
+              Employing a single, unified model (UM) for both visual understanding (image-to-text: I2T) and visual
+              generation (text-to-image: T2I) has opened a new direction in Visual Language Model (VLM) research.
+              While UMs can also support broader unimodal tasks (e.g., text-to-text, image-to-image), we focus on the
+              core cross-modal pair T2I and I2T. Existing evaluation benchmarks consider these capabilities in
+              isolation: FID and GenEval for T2I, and benchmarks such as MME, MMBench for I2T. These isolated
+              single-pass metrics do not reveal cross-consistency: whether a model that “understands” a concept can also
+              “render” it, nor whether semantic meaning is preserved when cycling between image and text modalities. To
+              address this, we introduce the Semantic Drift Protocol (SDP) for Unified Models, a cyclic evaluation
+              protocol that alternates I2T and T2I over multiple generations to quantify semantic drift.
+              We propose two metrics: (i) Mean Cumulative Drift (MCD), an embedding-based measure of overall
+              semantic drift;
+              and (ii) Multi-Generation GenEval (MGG), an object-level compliance score extending GenEval. To assess
+              generalization beyond COCO dataset, which is widely used in training; we create a new benchmark
+              Nocaps+Docci400,
+              sampled from NoCaps and DOCCI and evaluated on seven recent models. SDP reveals substantial variation in
+              cross-modal stability: some models like BAGEL maintain semantic meaning over many alternations, whereas
+              others like VILA-U drift quickly despite strong single-pass scores. Our results highlight SDP as a
+              necessary complement to standard I2T and T2I evaluations.
             </p>
           </div>
         </div>
@@ -261,7 +266,7 @@
     <h2>Results</h2>
 
     <figure style="text-align:center; margin:2rem 0;">
-      <img src="../static/semantic-drift/2._all_models_scores_captions-first_text_mpnet_text_-nocapsdocci_grid.jpg.png"
+      <img src="../static/semantic-drift/5._all_models_scores_images-first_image_dino_image_-nocapsdocci_grid.jpg.png"
         alt="Examples of semantic drift." class="banner" style="width:75%;">
       <figcaption style="font-size:1rem; color:#555; margin-top:0.5rem;">
         Embedding level image to image drift across generations (Using Dino).
@@ -281,10 +286,8 @@
       </figcaption>
     </figure>
 
-    <p>Comparison across embedding level and object level evaluations show that BAGEL achieves the highest performance
-      on both metrics.
-      LLaVA+SDXL and Janus 1.3B demonstrate strength in one metric but underperform in the
-      other. VILA-U underperforms in both.</p>
+    <p>Comparison across MCD and MGG shows that BAGEL achieves the highest performance on both metrics, while
+      VILA-U lags in both. The models align in a linear fashion, hinting at a correlation between the two scores.</p>
   </section>
 
   <section id="citation">

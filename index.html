@@ -259,10 +259,57 @@
 
   <section id="about">
     <h2>About</h2>
-    <p>Working on improving Unified Models that both understand and generate multimodal data. Interested in working with
-      Visual Language Models in General. Currently working as a Graduate Research Assistant at University of Central
-      Florida.</p>
+    <p>Hello! I'm a 2nd year PhD student at University of Central Florida. I am currently working on improving Unified Models that can understand and generate multimodal data. My recent works include evaluating loss of semantic meaning across repeatitive T2I and I2T operations using Unified Models.</p>
   </section>
+
+  <section id="publications">
+  <h2>Publications</h2>
+
+  <p>
+    <em><a href="projects/semantic-drift.html">
+      The Telephone Game: Evaluating Semantic Drift in Unified Models
+    </a></em>
+    <span>(Preprint, arXiv:2509.04438)</span>
+  </p>
+
+  <details>
+    <summary>Abstract (click to expand)</summary>
+    <p>
+      Employing a single, unified model (UM) for both visual understanding (image-to-text: I2T)
+      and visual generation (text-to-image: T2I) has opened a new direction in Visual Language
+      Model (VLM) research. While UMs can also support broader unimodal tasks (e.g., text-to-text,
+      image-to-image), we focus on the core cross-modal pair T2I and I2T. Existing evaluation
+      benchmarks consider these capabilities in isolation: FID and GenEval for T2I, and benchmarks
+      such as MME, MMBench for I2T. These isolated single-pass metrics do not reveal
+      cross-consistency—whether a model that “understands” a concept can also “render” it. To
+      address this, we introduce the Semantic Drift Protocol (SDP), a cyclic evaluation method
+      that alternates I2T and T2I to quantify semantic drift. We propose two metrics:
+      Mean Cumulative Drift (MCD) and Multi-Generation GenEval (MGG). Evaluated on our
+      Nocaps+Docci400 benchmark across seven recent models, SDP reveals strong differences in
+      cross-modal stability, highlighting its importance as a complement to standard evaluations.
+    </p>
+  </details>
+
+  <p>
+    <a href="https://arxiv.org/pdf/2509.04438" target="_blank" rel="noopener">[PDF]</a>
+  </p>
+
+  <p>
+    <em>LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition</em>. ICPR 2022, Montréal Québec.
+  </p>
+  <details>
+    <summary>Abstract (click to expand)</summary>
+    <p>
+      Word-level handwritten OCR remains a challenge for morphologically rich languages like
+      Bangla. This paper introduces two knowledge distillation methods improving performance on
+      minor classes and overall recognition rates, achieving up to a 4.5% gain over base models.
+    </p>
+  </details>
+  <p>
+    <a href="https://arxiv.org/abs/2205.11420" target="_blank" rel="noopener">[PDF]</a>
+  </p>
+</section>
+
 
   <section id="education">
 
@@ -302,15 +349,7 @@
     </ul>
   </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <p><em>LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting
-        Recognition</em>. ICPR 2022, Montréal Québec.</p>
-    <p>Abstract: Word-level handwritten OCR remains a challenge for morphologically rich languages like Bangla. This
-      paper introduces two knowledge distillation methods improving performance on minor classes and overall word
-      recognition rates. Evaluations showed up to 4.5% increase in recognition rate compared to base models.</p>
-    <p><a href="https://arxiv.org/abs/2208.XXXXX" target="_blank" rel="noopener">[PDF]</a></p>
-  </section>
+  
 
   <section id="experience">
     <h2>Experience</h2>
@@ -408,13 +447,6 @@
       Participated in district-level competitive tests in Mathematics and Computer Science.</p>
   </section>
 
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <p><a href="projects/semantic-drift.html">Semantic Drift in Unified Models</a></p>
-    <p><strong>B.S. Thesis:</strong> Domain Adaptation on Speaker Recognition Problem with RawNet</p>
-    <p>Other coursework projects related to pattern recognition, NLP, and linear algebra.</p>
-  </section>
 
   <section id="extracurricular">
     <h2>Extracurricular</h2>

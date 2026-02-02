@@ -383,7 +383,7 @@
                 <div class="box">
                   <h3 class="title is-5">Problem</h3>
                   <p>
-                    Early tokens in masked diffusion decoding get “locked in” under partial context,
+                    Early tokens, generated under partial context, in masked diffusion decoding get “locked in”,
                     causing cascading structural errors.
                   </p>
                 </div>
@@ -394,7 +394,7 @@
                   <h3 class="title is-5">Idea</h3>
                   <p>
                     Identify context-brittle tokens by stress-testing them under perturbed context,
-                    not by stale confidence.
+                    and remask them for revision.
                   </p>
                 </div>
               </div>
@@ -517,41 +517,56 @@
               </p>
 
               <ol>
-                <li><b>Pick candidates</b> (e.g., low top-2 margin tokens).</li>
+                <li><b>Pick candidate set</b> of tokens to perturb based on top-2 margin.</li>
                 <li><b>Perturb context</b> by masking the candidate set.</li>
-                <li><b>Score instability</b> of each token under the perturbed context.</li>
+                <li><b>Score instability</b> of each token in the candidate set under the perturbed context.</li>
                 <li><b>Revise</b> the most unstable tokens using predictions from the perturbed pass.</li>
               </ol>
             </div>
 
-            <div class="columns is-vcentered">
+            <div class="columns is-multiline">
               <div class="column is-6">
-                <!-- Replace with your method figure -->
-                <figure class="image">
-                  <img src="static/images/method_overview.png" alt="Method overview figure">
-                </figure>
-                <p class="has-text-centered is-size-7 mt-2">
-                  Figure: CoRe stress-tests token stability under context perturbation.
-                </p>
+                <div class="box">
+                  <h3 class="title is-5">Candidate Selection</h3>
+                  <p>
+                    CoRe restricts perturbation to a small candidate set selected via top-2 margin,
+                    ensuring that only ambiguous tokens are evaluated while keeping computation minimal.
+                  </p>
+                </div>
               </div>
 
               <div class="column is-6">
                 <div class="box">
-                  <h3 class="title is-5">Why it works</h3>
+                  <h3 class="title is-5">Context Perturbation</h3>
                   <p>
-                    Confidence can be high even when wrong under partial context.
-                    Instability under perturbation catches tokens that become inconsistent as context evolves.
+                    By masking the candidate set, CoRe creates a controlled worst-case context shift
+                    that exposes hidden dependencies between tokens and their surrounding context.
                   </p>
+                </div>
+              </div>
 
-                  <hr>
-
-                  <h3 class="title is-5">Compute cost</h3>
+              <div class="column is-6">
+                <div class="box">
+                  <h3 class="title is-5">Instability Scoring</h3>
                   <p>
-                    One lightweight extra forward pass only at revision steps (budget-friendly).
+                    Tokens are ranked by the drop in likelihood between the original and perturbed passes,
+                    providing a dynamic, context-aware signal for revision.
+                  </p>
+                </div>
+              </div>
+
+              <div class="column is-6">
+                <div class="box">
+                  <h3 class="title is-5">Selective Revision</h3>
+                  <p>
+                    Only the most unstable tokens are remasked and regenerated,
+                    preventing unnecessary disruption of stable parts of the sequence.
                   </p>
                 </div>
               </div>
             </div>
+
+
 
           </div>
         </div>

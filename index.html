@@ -2,491 +2,274 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sabbir Mollah — PhD student and graduate research assistant at the University of Central Florida.">
   <title>Sabbir Mollah</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-    /* Reset & Base */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #222;
-      max-width: 1200px;
-      margin: 3rem auto 2rem;
-      padding: 0 1rem;
-    }
-
-    /* Navbar */
-    nav#navbar {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      padding: 0.7rem 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      z-index: 1000;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    nav a {
-      color: #0077cc;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      transition: background-color 0.2s ease;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background-color: #e0f0ff;
-      outline: none;
-    }
-
-    /* Header */
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 1rem;
-      padding-top: 1.5rem;
-    }
-
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #0077cc;
-      flex-shrink: 0;
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #111;
-      margin: 0;
-    }
-
-    .role {
-      font-weight: 600;
-      color: #555;
-      font-size: 1.1rem;
-      margin: 0.3rem 0;
-    }
-
-    .contact {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .contact a {
-      color: #0077cc;
-      text-decoration: none;
-      margin-right: 1rem;
-    }
-
-    .social-links {
-      flex-basis: 100%;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .social-links a {
-      margin-right: 12px;
-      text-decoration: none;
-    }
-
-    .social-links a i {
-      margin-right: 4px;
-    }
-
-    .cv-link {
-      background: #0077cc;
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    /* Sections */
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
-      font-weight: 600;
-      color: #111;
-      font-size: 1.4rem;
-    }
-
-    p,
-    li {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-      color: #444;
-    }
-
-    ul {
-      list-style-type: disc;
-      margin-left: 1.2rem;
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .experience-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .job-title {
-      font-weight: 600;
-    }
-
-    .job-location-date {
-      font-style: italic;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Responsive */
-
-
-    @media (max-width: 480px) {
-      body {
-        margin: 1rem auto;
-        padding: 0 0.5rem;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .contact {
-        text-align: center;
-      }
-
-      nav#navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: #fff;
-        font-size: 0.9rem;
-        padding: 10px 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .social-links {
-        text-align: center;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav id="navbar">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#interests">Interests</a>
-    <a href="#publications">Publications</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#projects">Projects</a>
-    <a href="#extracurricular">Extracurricular</a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-name" href="#top">Sabbir Mollah</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Awards</a>
+      <a href="#service">Service</a>
+    </div>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <img src="static/display-image.jpg" alt="Sabbir's Photo" />
-    <div style="flex: 1; min-width: 250px;">
-      <h1>Sabbir Mollah</h1>
-      <p class="role">PhD Student | CRCV Lab | University of Central Florida</p>
-      <p class="contact">
-        📍 Orlando, Florida<br>
-        ✉️ <a href="">mollahsabbir [at] gmail [dot] com</a><br>
-        ✉️ <a href="">sabbir.mollah [at] ucf [dot] edu</a>
-      </p>
-    </div>
-    <div class="social-links">
-      <a href="https://linkedin.com/in/mollahsabbir" target="_blank" style="color: #0077b5;"><i
-          class="bi bi-linkedin"></i>LinkedIn</a> |
-      <a href="https://scholar.google.com/citations?user=XRGB2UcAAAAJ" target="_blank" style="color: #4285F4;"><i
-          class="bi bi-google"></i>Google Scholar</a> |
-      <a href="https://github.com/mollahsabbir" target="_blank" style="color: #333;"><i
-          class="bi bi-github"></i>GitHub</a> |
-      <a href="https://medium.com/@mollahsabbir" target="_blank" style="color: #000;"><i
-          class="bi bi-medium"></i>Medium</a> |
-      <a href="static/SabbirMollah_CV.pdf" class="cv-link" target="_blank"><i
-          class="bi bi-file-earmark-person"></i>CV</a>
-    </div>
-  </header>
+  <main id="top">
+    <header class="hero">
+      <img class="portrait" src="static/display-image.jpg" alt="Portrait of Sabbir Mollah">
+      <div class="hero-copy">
+        <p class="eyebrow">Graduate Research Assistant · IAI, UCF</p>
+        <h1>Sabbir Mollah</h1>
+        <p class="intro">
+          PhD student working on multimodal unified models, memory mechanisms, and multi-agent systems.
+        </p>
+        <p class="location"><i class="bi bi-geo-alt" aria-hidden="true"></i> Oviedo, Florida, USA</p>
+        <div class="contact-links" aria-label="Contact and profile links">
+          <a href="mailto:mollahsabbir@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i>Email</a>
+          <a href="https://scholar.google.com/citations?user=XRGB2UcAAAAJ" target="_blank" rel="noopener"><i class="bi bi-mortarboard" aria-hidden="true"></i>Scholar</a>
+          <a href="https://github.com/mollahsabbir" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i>GitHub</a>
+          <a href="https://linkedin.com/in/mollahsabbir" target="_blank" rel="noopener"><i class="bi bi-linkedin" aria-hidden="true"></i>LinkedIn</a>
+          <a class="primary-link" href="static/SabbirMollah_CV.pdf" target="_blank" rel="noopener"><i class="bi bi-file-earmark-text" aria-hidden="true"></i>View CV</a>
+        </div>
+      </div>
+    </header>
 
+    <section id="about">
+      <div class="section-heading">
+        <p>Profile</p>
+        <h2>About</h2>
+      </div>
+      <div class="section-content">
+        <p class="lead">
+          I am a PhD student in Computer Science at the University of Central Florida and a Graduate
+          Research Assistant at the Institute of Artificial Intelligence. My research focuses on
+          multimodal unified models, memory mechanisms, and multi-agent systems. I also have experience
+          in NLP, document understanding, and production machine learning systems.
+        </p>
+        <div class="tag-list" aria-label="Research interests">
+          <span>Multimodal Unified Models</span>
+          <span>Memory Mechanisms</span>
+          <span>Multi-Agent Systems</span>
+          <span>Vision-Language Models</span>
+          <span>Natural Language Processing</span>
+        </div>
+      </div>
+    </section>
 
+    <section id="publications">
+      <div class="section-heading">
+        <p>Research</p>
+        <h2>Publications</h2>
+      </div>
+      <div class="section-content publication-list">
+        <article class="publication featured">
+          <div class="publication-meta">
+            <span>ECCV 2026</span>
+            <span>Accepted</span>
+          </div>
+          <h3><a href="projects/semantic-drift.html">The Telephone Game: Evaluating Semantic Drift in Unified Models</a></h3>
+          <p><strong>Sabbir Mollah</strong>, Rohit Gupta, Sirnam Swetha, Qingyang Liu, Ahnaf Munir, and Mubarak Shah</p>
+          <div class="paper-links">
+            <a href="projects/semantic-drift.html">Project page <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <a href="https://arxiv.org/pdf/2509.04438" target="_blank" rel="noopener">Paper <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+          </div>
+        </article>
 
+        <article class="publication">
+          <div class="publication-meta">
+            <span>ICML 2026</span>
+            <span>Accepted</span>
+          </div>
+          <h3>CORE: Context-Robust Remasking for Diffusion Language Models</h3>
+          <p>Kevin Zhai, <strong>Sabbir Mollah (Co-First Author)</strong>, Zhenyi Wang, and Mubarak Shah</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/pdf/2602.04096" target="_blank" rel="noopener">Paper <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+          </div>
+        </article>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Hello! I'm a 2nd year PhD student at University of Central Florida. I am currently working on improving Unified Models that can understand and generate multimodal data. My recent works include evaluating loss of semantic meaning across repeatitive T2I and I2T operations using Unified Models.</p>
-  </section>
+        <article class="publication">
+          <div class="publication-meta">
+            <span>ICLR Tiny Papers 2023</span>
+          </div>
+          <h3>Automated Mapping of Healthcare Concepts to a Standardized Healthcare Taxonomy</h3>
+          <p><strong>Sabbir Mollah</strong>, Rakib Mohammed, Mashrur Wasek, AKM Shahariar Azad Rabby, Fuad Rahman, and Nabeel Mohammed</p>
+          <div class="paper-links">
+            <a href="https://openreview.net/forum?id=87oCobKKS6x" target="_blank" rel="noopener">OpenReview <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
 
-  <section id="publications">
-  <h2>Publications</h2>
+        <article class="publication">
+          <div class="publication-meta">
+            <span>ICPR 2022</span>
+          </div>
+          <h3>LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition</h3>
+          <p>Md. Ismail Hossain, Mohammed Rakib, <strong>Sabbir Mollah</strong>, Fuad Rahman, and Nabeel Mohammed</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2205.11420" target="_blank" rel="noopener">Paper <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <p>
-    <em><a href="projects/semantic-drift.html">
-      The Telephone Game: Evaluating Semantic Drift in Unified Models
-    </a></em>
-    <span>(Preprint, arXiv:2509.04438)</span>
-  </p>
+    <section id="education">
+      <div class="section-heading">
+        <p>Background</p>
+        <h2>Education</h2>
+      </div>
+      <div class="section-content timeline">
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>University of Central Florida</h3>
+              <p class="item-role">PhD in Computer Science</p>
+            </div>
+            <p class="item-date">2024–Present</p>
+          </div>
+          <p class="muted">Orlando, Florida, USA</p>
+          <ul>
+            <li>Graduate Research Assistant at the <a href="https://iai.ucf.edu/" target="_blank" rel="noopener">Institute of Artificial Intelligence</a>.</li>
+            <li>Advisor: <a href="https://www.crcv.ucf.edu/person/mubarak-shah/" target="_blank" rel="noopener">Dr. Mubarak Shah</a>.</li>
+            <li>Researching multimodal model performance and memory mechanisms for multi-agent systems.</li>
+          </ul>
+        </article>
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>North South University</h3>
+              <p class="item-role">B.S. in Computer Science and Engineering</p>
+            </div>
+            <p class="item-date">2017–2021</p>
+          </div>
+          <p class="muted">Dhaka, Bangladesh</p>
+          <ul>
+            <li>Magna Cum Laude, CGPA 3.73/4.00.</li>
+            <li>Thesis: Domain adaptation on RawNet for language-invariant speaker recognition.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-  <details>
-    <summary>Abstract (click to expand)</summary>
-    <p>
-      Employing a single, unified model (UM) for both visual understanding (image-to-text: I2T)
-      and visual generation (text-to-image: T2I) has opened a new direction in Visual Language
-      Model (VLM) research. While UMs can also support broader unimodal tasks (e.g., text-to-text,
-      image-to-image), we focus on the core cross-modal pair T2I and I2T. Existing evaluation
-      benchmarks consider these capabilities in isolation: FID and GenEval for T2I, and benchmarks
-      such as MME, MMBench for I2T. These isolated single-pass metrics do not reveal
-      cross-consistency—whether a model that “understands” a concept can also “render” it. To
-      address this, we introduce the Semantic Drift Protocol (SDP), a cyclic evaluation method
-      that alternates I2T and T2I to quantify semantic drift. We propose two metrics:
-      Mean Cumulative Drift (MCD) and Multi-Generation GenEval (MGG). Evaluated on our
-      Nocaps+Docci400 benchmark across seven recent models, SDP reveals strong differences in
-      cross-modal stability, highlighting its importance as a complement to standard evaluations.
-    </p>
-  </details>
+    <section id="experience">
+      <div class="section-heading">
+        <p>Industry &amp; Research</p>
+        <h2>Experience</h2>
+      </div>
+      <div class="section-content timeline">
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>bKash Limited</h3>
+              <p class="item-role">Machine Learning Engineer</p>
+            </div>
+            <p class="item-date">Dec 2022–Jul 2024</p>
+          </div>
+          <p class="muted">Dhaka, Bangladesh</p>
+          <ul>
+            <li>Built document-information extraction and missing-address-token prediction systems.</li>
+            <li>Developed a graph-based fraud prevention system and an English-to-Bangla transliteration system.</li>
+            <li>Built a loan repayment risk model in Julia and reactive backend features for human agent-assisted services.</li>
+          </ul>
+        </article>
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>Apurba Technologies Limited</h3>
+              <p class="item-role">Software Engineer, Machine Learning</p>
+            </div>
+            <p class="item-date">Sep–Dec 2022</p>
+          </div>
+          <p class="muted">Dhaka, Bangladesh</p>
+          <ul>
+            <li>Built Bangla Screen Reader, an accessibility application for visually impaired users.</li>
+            <li>Developed an NLP solution mapping electronic health records to SNOMED Clinical Terminology.</li>
+            <li>Created a Bangla inter-encoding conversion library across Python, Java, C#, and JavaScript.</li>
+          </ul>
+        </article>
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>Apurba-NSU R&amp;D Lab</h3>
+              <p class="item-role">Research Assistant</p>
+            </div>
+            <p class="item-date">Sep 2021–Aug 2022</p>
+          </div>
+          <p class="muted">Dhaka, Bangladesh</p>
+          <ul>
+            <li>Improved CRNN performance on minor classes using knowledge distillation.</li>
+            <li>Trained Mask R-CNN models for Bangla document segmentation and worked on Bangla speech recognition.</li>
+          </ul>
+        </article>
+        <article>
+          <div class="item-header">
+            <div>
+              <h3>North South University</h3>
+              <p class="item-role">Lab Instructor, ECE Department</p>
+            </div>
+            <p class="item-date">Spring &amp; Summer 2022</p>
+          </div>
+          <p class="muted">Dhaka, Bangladesh</p>
+          <p>Taught undergraduate Database Management Systems with SQL and Object-Oriented Programming with Java.</p>
+        </article>
+      </div>
+    </section>
 
-  <p>
-    <a href="https://arxiv.org/pdf/2509.04438" target="_blank" rel="noopener">[PDF]</a>
-  </p>
+    <section id="skills">
+      <div class="section-heading">
+        <p>Toolkit</p>
+        <h2>Skills</h2>
+      </div>
+      <div class="section-content skill-grid">
+        <article><h3>Machine Learning</h3><p>PyTorch, TensorFlow, Hugging Face, scikit-learn, pandas, Polars, PySpark, matplotlib</p></article>
+        <article><h3>Programming</h3><p>Python, Julia, Java, C, C++, C#, Haskell</p></article>
+        <article><h3>Frameworks</h3><p>Flask, FastAPI, Spring Boot Reactive, .NET Framework</p></article>
+        <article><h3>Databases</h3><p>MySQL, DynamoDB, MongoDB, Neo4j</p></article>
+        <article><h3>Version Control</h3><p>Git, GitHub, GitLab</p></article>
+        <article><h3>Languages</h3><p>Bangla, English, Italian</p></article>
+      </div>
+    </section>
 
-  <p>
-    <em>LILA-BOTI: Leveraging Isolated Letter Accumulations By Ordering Teacher Insights for Bangla Handwriting Recognition</em>. ICPR 2022, Montréal Québec.
-  </p>
-  <details>
-    <summary>Abstract (click to expand)</summary>
-    <p>
-      Word-level handwritten OCR remains a challenge for morphologically rich languages like
-      Bangla. This paper introduces two knowledge distillation methods improving performance on
-      minor classes and overall recognition rates, achieving up to a 4.5% gain over base models.
-    </p>
-  </details>
-  <p>
-    <a href="https://arxiv.org/abs/2205.11420" target="_blank" rel="noopener">[PDF]</a>
-  </p>
-</section>
+    <section id="achievements">
+      <div class="section-heading">
+        <p>Recognition</p>
+        <h2>Achievements &amp; Awards</h2>
+      </div>
+      <div class="section-content compact-grid">
+        <article><p class="item-date">2022</p><h3>Robi Datathon 2.0</h3><p>Finalist; applied cost-sensitive learning to improve model performance.</p></article>
+        <article><p class="item-date">2021</p><h3>MIST ICT Innovation Fest Hackathon</h3><p>Champion; designed and deployed a handwriting recognition model.</p></article>
+        <article><p class="item-date">2019</p><h3>IoT for Tomorrow</h3><p>First runner-up; presented a Firebase-connected fire detection system.</p></article>
+        <article><p class="item-date">2018</p><h3>Electrathon</h3><p>Second runner-up in a hardware and software problem-solving competition.</p></article>
+      </div>
+    </section>
 
+    <section id="service">
+      <div class="section-heading">
+        <p>Community</p>
+        <h2>Leadership &amp; Service</h2>
+      </div>
+      <div class="section-content compact-grid">
+        <article><p class="item-date">2017–2021</p><h3>NSU ACM Student Chapter</h3><p>Chair of a 300+ member community; organized HackNSU Season 2.</p></article>
+        <article><p class="item-date">2017–2019</p><h3>NSU Communications Club</h3><p>Sub Executive; led digital promotion activities.</p></article>
+        <article><p class="item-date">2020–2022</p><h3>Technical Workshops</h3><p>Led four workshops on Python, PyTorch, and deep learning.</p></article>
+        <article><p class="item-date">2014–2016</p><h3>Atomic BAFSK Science Club</h3><p>Founding General Secretary of the secondary-school science club.</p></article>
+      </div>
+    </section>
+  </main>
 
-  <section id="education">
-
-    <h2>Education</h2>
-    <p><strong>University of Central Florida</strong><br />
-      Pursuing PhD in Computer Science<br />
-      Aug 2024 - Current, Orlando, Florida<br />
-      Research Area: Computer Vision, Multimodal Learning, Visual Language Models<br />
-      Supervisor: <a href="https://www.crcv.ucf.edu/person/mubarak-shah/" target="_blank">Dr. Mubarak Shah</a><br />
-      Lab: <a href="https://www.crcv.ucf.edu/" target="_blank">Center for Research in Computer Vision (CRCV)</a></p>
-
-    <p><strong>North South University</strong><br />
-      B.S. In Computer Science and Engineering<br />
-      Jan 2017 - May 2021, Dhaka, Bangladesh<br />
-      Graduated with Magna Cum Laude distinction, CGPA 3.73/4.00<br />
-      Thesis: Domain Adaptation on Speaker Recognition Problem with RawNet<br />
-      Relevant Courses: Pattern Recognition and Neural Network, Natural Language Processing, Introduction to Linear
-      Algebra.</p>
-
-    <!-- <p><strong>BAF Shaheen College Kurmitola</strong><br />
-      HSC - Higher Secondary Certificate<br />
-      2014 - 2016, Dhaka, Bangladesh<br />
-      GPA: 5.00/5.00</p>
-
-    <p><strong>Rajoir Gopalgonj KJS Pilot Institution</strong><br />
-      SSC - Secondary School Certificate<br />
-      2012 - 2014, Dhaka, Bangladesh<br />
-      GPA: 5.00/5.00</p> -->
-  </section>
-
-  <section id="interests">
-    <h2>Interests</h2>
-    <ul>
-      <li>Unified Models (Visual Understanding + Visual Generation)</li>
-      <li>Vision Language Models</li>
-      <li>Natural Language Processing</li>
-    </ul>
-  </section>
-
-  
-
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="experience-item">
-      <h3>BKASH Limited</h3>
-      <p class="job-title">Machine Learning Engineer</p>
-      <p class="job-location-date">Dhaka, Bangladesh (Dec 2022 - July 2024)</p>
-      <ul>
-        <li>Extracted information from printed documents.</li>
-        <li>Developed fraud prevention system using a graph database.</li>
-        <li>Predicted missing post office names from user data.</li>
-        <li>Implemented comprehensive English to Bangla machine transliteration.</li>
-        <li>Built loan repayment and risk assessment models using Julia.</li>
-        <li>Developed backend features with Reactive Programming to enable human-agent-assisted services.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Apurba Technologies Ltd.</h3>
-      <p class="job-title">Software Engineer, Machine Learning</p>
-      <p class="job-location-date">Dhaka, Bangladesh (Sep 2022 - Dec 2022)</p>
-      <ul>
-        <li>Designed and developed machine learning solutions.</li>
-        <li>Researched and documented ML-based approaches.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Apurba-NSU R&D Lab</h3>
-      <p class="job-title">Part-Time Research Assistant</p>
-      <p class="job-location-date">Dhaka, Bangladesh (Sep 2021 - Aug 2022)</p>
-      <ul>
-        <li>Published a paper on improving OCR performance for morphologically rich languages like Bangla.</li>
-        <li>Contributed to multiple NLP-based projects.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>ECE Department, North South University</h3>
-      <p class="job-title">Part-Time Lab Instructor</p>
-      <p class="job-location-date">Dhaka, Bangladesh (Spring 2022 & Summer 2022)</p>
-      <ul>
-        <li>Taught Database Management Systems (SQL) and Object-Oriented Programming (Java) to classes of ~40 students.
-        </li>
-        <li>Prepared lab materials, exam questions, and assessed student projects.</li>
-      </ul>
-    </div>
-  </section>
-
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Programming:</strong> Python, C, C++, Java; familiar with C#, PHP, JavaScript.</li>
-      <li><strong>Development:</strong> Clean Coding, Object-Oriented Design Patterns.</li>
-      <li><strong>Machine Learning:</strong> PyTorch, Keras, scikit-learn, pandas, pyspark, matplotlib.</li>
-      <li><strong>Database:</strong> Intermediate to advanced MySQL.</li>
-      <li><strong>Version Control:</strong> Git best practices.</li>
-      <li><strong>Communications:</strong> Skilled in public speaking and paper writing.</li>
-      <li><strong>Languages:</strong> Bangla, English, Italian.</li>
-    </ul>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Deep Learning Specialization - Coursera, November 29, 2020</li>
-      <li>Machine Learning - Coursera, July 21, 2020</li>
-      <li>Introduction to Philosophy - Coursera, August 8, 2020</li>
-    </ul>
-  </section>
-
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <p><strong>Robi Datathon 2.0</strong> – Finalists<br />
-      Robi, Axiata Ltd., 2022, Dhaka<br />
-      Top 25 out of 384 teams. Worked with geospatial data, optimized pyspark queries, and implemented cost-sensitive
-      learning to improve model performance.</p>
-
-    <p><strong>MIST Inter-University ICT Innovation Fest Hackathon</strong> – Champions<br />
-      MIST, 2021, Dhaka<br />
-      Developed handwriting recognition and identification models.</p>
-
-    <p><strong>IOT For Tomorrow</strong> – First Runners Up<br />
-      NSU IEEE Student Branch, 2019, Dhaka<br />
-      Presented a fire detection circuit with microcontroller integration to Firebase.</p>
-
-    <p><strong>Electrathon</strong> – 2nd Runners Up<br />
-      NSU IEEE Student Branch, 2018, Dhaka<br />
-      Created python automation using Selenium and an Arduino-based solution.</p>
-
-    <p><strong>National Talent Hunt</strong> – Best Talent in Computer and Math<br />
-      Bangladesh Education Ministry, 2012, Dhaka<br />
-      Participated in district-level competitive tests in Mathematics and Computer Science.</p>
-  </section>
-
-
-  <section id="extracurricular">
-    <h2>Extracurricular</h2>
-
-    <p><strong>NSU ACM Student Chapter</strong> – Chapter Chair<br />
-      Dhaka, Bangladesh, 2017–2021<br />
-      Elected as Chair of a community of over 300 members. Planned and organized HackNSU Season 2, an inter-university
-      hackathon with 25+ participating teams.</p>
-
-    <p><strong>NSU Communications Club</strong> – Sub Executive<br />
-      Dhaka, Bangladesh, 2017–2019<br />
-      Led the Promotions team responsible for digital advertising.</p>
-
-    <p><strong>NSU Cultural Club</strong> – General Member<br />
-      Dhaka, Bangladesh, 2017–2019<br />
-      Supported artists in organizing on-campus cultural events and contributed to campus decoration during national and
-      local festivities.</p>
-
-    <p><strong>Workshops</strong> – Instructor<br />
-      Dhaka, Bangladesh, 2020, 2021, 2022<br />
-      Delivered four workshops on Python, PyTorch, and deep learning.</p>
-
-    <p><strong>Atomic BAFSK Science Club</strong> – Founding General Secretary<br />
-      Dhaka, Bangladesh, 2014–2016<br />
-      Took initiative to establish the Science Club at secondary school level.</p>
-  </section>
-</body>
-<script>
-  let lastScrollY = window.scrollY;
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY) {
-      navbar.style.top = "-100px";
-    } else {
-      navbar.style.top = "0";
-    }
-    lastScrollY = window.scrollY;
-  });
-</script>
+  <footer>
+    <p>© 2026 Sabbir Mollah</p>
+    <a href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+  </footer>
 </body>
 
 </html>

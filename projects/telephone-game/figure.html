@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex">
+  <title>Figure | The Telephone Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="figure.js" defer></script>
+</head>
+<body class="figure-page">
+  <header class="figure-toolbar">
+    <a class="viewer-back" href="index.html">← Project page</a>
+    <h1 id="figure-title">The Telephone Game</h1>
+    <div class="viewer-actions">
+      <button class="button" id="figure-zoom" type="button" aria-pressed="false" aria-controls="figure-stage" hidden>View actual size</button>
+      <a class="button" id="figure-download" hidden>Download image ↓</a>
+    </div>
+  </header>
+  <main class="figure-main">
+    <p class="viewer-error" id="figure-error" role="alert" hidden></p>
+    <figure class="expanded-figure">
+      <div class="figure-stage" id="figure-stage" tabindex="0" aria-label="Expanded research figure">
+        <img id="figure-image" alt="" hidden>
+      </div>
+      <figcaption id="figure-caption"></figcaption>
+    </figure>
+    <noscript><p>Please enable JavaScript to load the selected figure, or <a href="index.html">return to the project page</a>.</p></noscript>
+  </main>
+</body>
+</html>

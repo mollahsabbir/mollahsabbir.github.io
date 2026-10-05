@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Telephone Game introduces a cyclic evaluation of unified models: alternate image understanding and generation to uncover semantic drift. ECCV 2026.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="The Telephone Game: Evaluating Semantic Drift in Unified Models">
+  <meta property="og:description" content="How much meaning survives when a model repeatedly turns text into images and back? Explore our ECCV 2026 benchmark, results, video, and poster.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mollahsabbir.com/projects/telephone-game/">
+  <meta property="og:image" content="https://mollahsabbir.com/static/telephone-game/figures/teaser.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>The Telephone Game | ECCV 2026</title>
+  <link rel="canonical" href="https://mollahsabbir.com/projects/telephone-game/">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="nav-brand" href="#top">The Telephone Game<span class="nav-dot" aria-hidden="true"></span></a>
+    <div class="nav-links">
+      <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#human-evaluation">Human study</a><a href="#presentation">Video &amp; poster</a><a href="#citation">Citation</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <p class="venue"><span class="venue-dot" aria-hidden="true"></span> ECCV 2026</p>
+      <h1>The Telephone Game<span class="visually-hidden">:</span><span class="paper-subtitle"> Evaluating Semantic Drift in Unified Models</span></h1>
+      <p class="hero-question">How much meaning survives when a model turns text into images, and back again?</p>
+      <div class="authors" aria-label="Authors">
+        <a href="https://mollahsabbir.com">Sabbir Mollah<span class="author-mark" aria-label="corresponding author">*</span></a>
+        <a href="https://www.rohitg.xyz/" target="_blank" rel="noopener">Rohit Gupta<span class="author-mark" aria-label="equal contribution as second author">†</span></a>
+        <a href="https://swetha5.github.io/" target="_blank" rel="noopener">Sirnam Swetha<span class="author-mark" aria-label="equal contribution as second author">†</span></a>
+        <a href="https://www.crcv.ucf.edu/people/students/" target="_blank" rel="noopener">Qingyang Liu<span class="author-mark" aria-label="equal contribution as third author">‡</span></a>
+        <a href="https://ahnaf1393.github.io/" target="_blank" rel="noopener">Ahnaf Munir<span class="author-mark" aria-label="equal contribution as third author">‡</span></a>
+        <a href="https://www.crcv.ucf.edu/person/mubarak-shah/" target="_blank" rel="noopener">Mubarak Shah</a>
+      </div>
+      <p class="affiliation"><a href="https://www.ucf.edu/institute-of-artificial-intelligence/" target="_blank" rel="noopener">Institute of Artificial Intelligence</a>, University of Central Florida, USA</p>
+      <p class="contribution-note">* Corresponding author · † Equal second authors · ‡ Equal third authors</p>
+      <div class="resource-links" aria-label="Project resources">
+        <a class="button button-primary" href="https://arxiv.org/abs/2509.04438" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Paper<span class="button-detail">arXiv</span></a>
+        <a class="button" href="https://github.com/mollahsabbir/telephone-game-semantic-drift" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></svg>Code &amp; data</a>
+        <a class="button" href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>Poster</a>
+        <a class="button" href="#presentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></svg>Watch video</a>
+      </div>
+    </header>
+
+    <section class="overview" id="overview" aria-labelledby="overview-heading">
+      <div class="section-heading centered"><p class="eyebrow">The core idea</p><h2 id="overview-heading">A good first generation doesn’t tell the whole story.</h2><p class="section-intro">We compose a model’s own understanding and generation repeatedly. Small mismatches compound, revealing failures that isolated benchmarks miss.</p></div>
+      <figure class="figure-card teaser">
+        <a href="../../static/telephone-game/figures/teaser.webp" target="_blank" rel="noopener" aria-label="Open the Telephone Game example at full size"><img width="2400" height="573" src="../../static/telephone-game/figures/teaser.webp" alt="A unified model alternates text and image generation from a suitcase and a banana. The suitcase disappears after generation five, while the banana count grows to fourteen." fetchpriority="high"></a>
+        <figcaption>One suitcase. One banana. After repeated text ↔ image transitions, the suitcase disappears and the banana count reaches 14.<span class="figure-hint">Select any figure to view full size ↗</span></figcaption>
+      </figure>
+      <div class="takeaway-grid">
+        <article class="takeaway"><span class="card-number">01</span><h3>Understanding ≠ generation</h3><p>A model can describe a concept correctly and still fail to render it faithfully.</p></article>
+        <article class="takeaway"><span class="card-number">02</span><h3>Errors compound</h3><p>Once a core detail is lost, later generations tend to amplify the mistake.</p></article>
+        <article class="takeaway"><span class="card-number">03</span><h3>Measure the whole chain</h3><p>Cyclic evaluation separates models whose first-pass scores look similar.</p></article>
+      </div>
+      <dl class="benchmark-stats" aria-label="Benchmark at a glance">
+        <div><dt>7</dt><dd>systems in the full comparison</dd></div><div><dt>400</dt><dd>image–text pairs · NoCaps + DOCCI</dd></div><div><dt>20</dt><dd>generations in the evaluation horizon</dd></div><div><dt>6</dt><dd>recurring semantic failure modes</dd></div>
+      </dl>
+    </section>
+
+    <section id="presentation" aria-labelledby="presentation-heading">
+      <div class="section-heading"><p class="eyebrow">Watch &amp; explore</p><h2 id="presentation-heading">The presentation and poster.</h2></div>
+      <div class="presentation-grid">
+        <article class="video-card">
+          <video controls playsinline preload="none" poster="../../static/telephone-game/video-preview.webp" aria-label="The Telephone Game research presentation" aria-describedby="video-description"><source src="../../static/telephone-game/video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="../../static/telephone-game/video.mp4">Download the presentation.</a></video>
+          <div class="media-caption"><div><h3>Video presentation <span class="duration">11:22</span></h3><p id="video-description">The motivation, protocol, and findings behind the Telephone Game.</p></div><a href="../../static/telephone-game/video.mp4" download>Download MP4 <span aria-hidden="true">↓</span></a></div>
+        </article>
+        <article class="poster-card">
+          <a class="poster-preview" href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener" aria-label="View the full Telephone Game poster PDF"><img width="1600" height="1143" src="../../static/telephone-game/poster-preview.webp" alt="Preview of the Telephone Game research poster with the evaluation protocol, semantic drift examples, and model results." loading="lazy"></a>
+          <div class="media-caption"><div><h3>Conference poster</h3><p>A visual overview of the work.</p></div><a href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener">View PDF <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="method" aria-labelledby="method-heading">
+      <div class="section-heading"><p class="eyebrow">The method</p><h2 id="method-heading">The Semantic Drift Protocol</h2><p class="section-intro">Start with text or an image. Alternate text-to-image (T2I) and image-to-text (I2T), then compare each output with the original input.</p></div>
+      <div class="chain-grid" aria-label="The two evaluation chains">
+        <div class="chain-card"><h3>Text-first chain</h3><p class="chain"><span class="text-node">Text</span><span aria-hidden="true">→</span><span class="image-node">Image</span><span aria-hidden="true">→</span><span class="text-node">Text</span><span aria-hidden="true">→ …</span></p><p>Does the original description survive?</p></div>
+        <div class="chain-card"><h3>Image-first chain</h3><p class="chain"><span class="image-node">Image</span><span aria-hidden="true">→</span><span class="text-node">Text</span><span aria-hidden="true">→</span><span class="image-node">Image</span><span aria-hidden="true">→ …</span></p><p>Does the original scene survive?</p></div>
+      </div>
+      <details class="figure-details"><summary>See the protocol in action <span aria-hidden="true">+</span></summary><figure class="figure-card protocol-figure"><a href="../../static/telephone-game/figures/protocol.webp" target="_blank" rel="noopener" aria-label="Open the evaluation protocol figure at full size"><img width="2200" height="2239" src="../../static/telephone-game/figures/protocol.webp" alt="Text-first and image-first chains, with comparisons back to the original input. A red truck changes identity and position, while an image of a group gains people and new objects." loading="lazy"></a><figcaption>Both chains measure fidelity to the initial input, in the same modality and across modalities.</figcaption></figure></details>
+      <div class="metric-grid">
+        <article class="metric-card"><p class="metric-label">MCD <span>↑ Higher is better</span></p><h3>Mean Cumulative Drift</h3><p>Average semantic similarity across generations and four modality mappings.</p><ul class="compact-list"><li><strong>MPNet</strong> for text ↔ text</li><li><strong>DINO</strong> for image ↔ image</li><li><strong>CLIP</strong> for cross-modal similarity</li></ul><p class="metric-note">Despite the name, a higher MCD score means stronger retention and less drift.</p></article>
+        <article class="metric-card"><p class="metric-label">MGG <span>↑ Higher is better</span></p><h3>Multi-Generation GenEval</h3><p>Object-level prompt compliance across repeated generations, using rewritten GenEval prompts and OWLv2 detections.</p><div class="tag-list" aria-label="MGG evaluation tasks"><span>Objects</span><span>Counts</span><span>Colors</span><span>Positions</span><span>Attribute binding</span></div><p class="metric-note">Measures whether a model preserves structured scene details over time.</p></article>
+      </div>
+    </section>
+
+    <section id="findings" aria-labelledby="findings-heading">
+      <div class="section-heading"><p class="eyebrow">What goes wrong</p><h2 id="findings-heading">Six ways meaning slips away.</h2></div>
+      <figure class="figure-card"><a href="../../static/telephone-game/figures/failure-modes.webp" target="_blank" rel="noopener" aria-label="Open the semantic drift failure modes at full size"><img width="2400" height="2431" src="../../static/telephone-game/figures/failure-modes.webp" alt="Six rows of generated images show position errors, a bat turning into a spoon, a photograph turning into a cartoon, lost clock counts, a hallucinated city, and a bus changing color." loading="lazy"></a><figcaption>Drift affects entities, attributes, counts, relations, and style—even when individual outputs look plausible.</figcaption></figure>
+      <div class="failure-grid">
+        <div><span>01</span><h3>Spatial relations</h3><p>The clock’s position is lost.</p></div><div><span>02</span><h3>Object identity</h3><p>A baseball bat becomes a spoon.</p></div><div><span>03</span><h3>Visual style</h3><p>A photograph becomes a cartoon.</p></div><div><span>04</span><h3>Object counts</h3><p>Four clocks become an unspecified set.</p></div><div><span>05</span><h3>Hallucinated content</h3><p>A city appears around an empty road.</p></div><div><span>06</span><h3>Color attributes</h3><p>A brown bus turns yellow.</p></div>
+      </div>
+      <div class="consistency-callout"><figure><a href="../../static/telephone-game/figures/cross-consistency.webp" target="_blank" rel="noopener" aria-label="Open the chess cross-consistency example at full size"><img width="1600" height="965" src="../../static/telephone-game/figures/cross-consistency.webp" alt="BAGEL identifies a winning chess position for white, but generates a generic board when asked to depict white winning." loading="lazy"></a></figure><div><p class="eyebrow">Even strong models have gaps</p><h3>Can understand it.<br>Can’t faithfully generate it.</h3><p>BAGEL correctly analyzes a winning chess position, yet fails to generate a board that depicts the same concept. We call this <strong>cross-inconsistency</strong>.</p></div></div>
+    </section>
+
+    <section id="results" aria-labelledby="results-heading">
+      <div class="section-heading"><p class="eyebrow">Full benchmark results</p><h2 id="results-heading">Stability matters beyond the first pass.</h2><p class="section-intro">BAGEL leads both metrics. Other models can start strong, then lose semantic fidelity as the chain grows.</p></div>
+      <div class="results-grid">
+        <div class="table-card"><table><caption>Seven systems · camera-ready results</caption><thead><tr><th scope="col">Model</th><th scope="col">MCD<sub>avg</sub> ↑</th><th scope="col">MGG ↑</th></tr></thead><tbody>
+          <tr class="best-result"><th scope="row">BAGEL <span>Best</span></th><td>0.4414</td><td>78.2</td></tr>
+          <tr><th scope="row">BLIP3-o</th><td>0.3984</td><td>62.2</td></tr><tr><th scope="row">Show-o</th><td>0.3691</td><td>57.8</td></tr><tr><th scope="row">Janus-7B</th><td>0.3778</td><td>52.5</td></tr><tr><th scope="row">LLaVA+SDXL</th><td>0.3298</td><td>32.3</td></tr><tr><th scope="row">Janus-1.3B</th><td>0.3470</td><td>27.0</td></tr><tr><th scope="row">VILA-U</th><td>0.2829</td><td>19.7</td></tr>
+        </tbody></table><p class="table-note">Higher is better for both metrics. Rows follow the paper’s MGG ordering; MCD rankings differ.</p></div>
+        <figure class="figure-card results-plot"><a href="../../static/telephone-game/figures/multi-generation-geneval.webp" target="_blank" rel="noopener" aria-label="Open multi-generation GenEval results at full size"><img width="808" height="549" src="../../static/telephone-game/figures/multi-generation-geneval.webp" alt="GenEval accuracy across generations. BAGEL remains comparatively stable, while weaker models decline sharply." loading="lazy"></a><figcaption>Similar first-generation compliance can conceal very different long-term behavior.</figcaption></figure>
+      </div>
+      <div class="plot-grid">
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/text-to-text.webp" target="_blank" rel="noopener" aria-label="Open text-to-text retention results at full size"><img width="800" height="600" src="../../static/telephone-game/figures/text-to-text.webp" alt="MPNet similarity between initial and later captions in text-first chains. BAGEL preserves the most meaning; VILA-U declines steeply." loading="lazy"></a><figcaption><strong>Text → text</strong> · MPNet semantic similarity</figcaption></figure>
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/image-to-image.webp" target="_blank" rel="noopener" aria-label="Open image-to-image retention results at full size"><img width="800" height="600" src="../../static/telephone-game/figures/image-to-image.webp" alt="DINO similarity between initial and generated images in image-first chains. Visual fidelity declines as generations progress." loading="lazy"></a><figcaption><strong>Image → image</strong> · DINO semantic similarity</figcaption></figure>
+      </div>
+      <details class="figure-details"><summary>Explore the cross-modal results <span aria-hidden="true">+</span></summary><div class="plot-grid">
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/text-to-image.webp" target="_blank" rel="noopener" aria-label="Open text-to-image retention results at full size"><img width="800" height="600" src="../../static/telephone-game/figures/text-to-image.webp" alt="CLIP similarity between original captions and generated images across text-first chains." loading="lazy"></a><figcaption><strong>Text → image</strong> · CLIP semantic similarity</figcaption></figure>
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/image-to-text.webp" target="_blank" rel="noopener" aria-label="Open image-to-text retention results at full size"><img width="800" height="600" src="../../static/telephone-game/figures/image-to-text.webp" alt="CLIP similarity between original images and later captions across image-first chains." loading="lazy"></a><figcaption><strong>Image → text</strong> · CLIP semantic similarity</figcaption></figure>
+      </div></details>
+      <div class="finding-strip"><strong>Composition is the weak point.</strong><p>Counts, positions, and attribute bindings fail earlier than simple object presence. After a critical error, later generations typically compound it.</p></div>
+    </section>
+
+    <section id="human-evaluation" aria-labelledby="human-heading">
+      <div class="section-heading"><p class="eyebrow">Validated by people</p><h2 id="human-heading">Do the metrics match human judgments?</h2><p class="section-intro">Six annotators assessed 200 examples, with two independent annotations per example. Model identities were hidden and output order randomized.</p></div>
+      <div class="human-stats">
+        <article><span class="stat-label">MCD vs. understanding rank</span><strong>r = −0.833</strong><p>Strong agreement with human judgments.</p></article><article><span class="stat-label">MGG vs. generation rank</span><strong>r = −0.821</strong><p>Closer agreement than single-pass GenEval.</p></article><article><span class="stat-label">GenEval vs. generation rank</span><strong>r = −0.753</strong><p>The single-pass comparison.</p></article>
+      </div>
+      <p class="small-note">Pearson correlations across the seven systems. Negative values reflect that lower human rank is better, while higher metric scores are better.</p>
+      <div class="plot-grid">
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/human-geneval.webp" target="_blank" rel="noopener" aria-label="Open single-pass GenEval and human ranking correlation at full size"><img width="1600" height="1163" src="../../static/telephone-game/figures/human-geneval.webp" alt="Single-pass GenEval versus human generation ranking, with Pearson r of minus 0.753." loading="lazy"></a><figcaption><strong>Single-pass GenEval</strong> vs. human generation rank</figcaption></figure>
+        <figure class="figure-card"><a href="../../static/telephone-game/figures/human-mgg.webp" target="_blank" rel="noopener" aria-label="Open MGG and human ranking correlation at full size"><img width="1600" height="1218" src="../../static/telephone-game/figures/human-mgg.webp" alt="Multi-Generation GenEval versus human generation ranking, with Pearson r of minus 0.821." loading="lazy"></a><figcaption><strong>Multi-Generation GenEval</strong> vs. human generation rank</figcaption></figure>
+      </div>
+      <details class="figure-details"><summary>Understanding and generation are often misaligned <span aria-hidden="true">+</span></summary><figure class="figure-card"><a href="../../static/telephone-game/figures/human-cross-consistency.webp" target="_blank" rel="noopener" aria-label="Open human cross-consistency evaluation at full size"><img width="2400" height="903" src="../../static/telephone-game/figures/human-cross-consistency.webp" alt="Human fidelity ratings show stronger understanding than generation across most systems. A detailed BAGEL heatmap shows fewer mismatches." loading="lazy"></a><figcaption>The most common mismatch is stronger understanding paired with weaker generation. BAGEL shows the strongest cross-consistency in this comparison.</figcaption></figure></details>
+      <details class="figure-details robustness-details"><summary>Checks beyond the main benchmark <span aria-hidden="true">+</span></summary><ul class="compact-list"><li><strong>Representation checks:</strong> alternative embedding backbones preserve the main trends.</li><li><strong>Prompt sensitivity:</strong> different recaptioning prompts retain the relative conclusions for BAGEL, Show-o, and VILA-U.</li><li><strong>Detector audit:</strong> OWLv2 achieves 81.0% agreement with human judgments; agreement remains similar at early and late generations.</li><li><strong>Additional models:</strong> Emu3 and proprietary systems are evaluated on smaller diagnostic subsets, separately from the full benchmark ranking.</li></ul></details>
+    </section>
+
+    <section id="citation" aria-labelledby="citation-heading">
+      <div class="section-heading citation-heading"><div><p class="eyebrow">Use this work</p><h2 id="citation-heading">Citation</h2></div><button class="button copy-button" type="button" id="copy-citation" hidden>Copy BibTeX</button></div>
+      <p class="small-note">Accepted at ECCV 2026. The BibTeX below references the arXiv preprint.</p>
+      <pre><code id="bibtex">@misc{mollah2025telephonegameevaluatingsemantic,
+  title={The Telephone Game: Evaluating Semantic Drift in Unified Models},
+  author={Sabbir Mollah and Rohit Gupta and Sirnam Swetha and
+          Qingyang Liu and Ahnaf Munir and Mubarak Shah},
+  year={2025},
+  eprint={2509.04438},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2509.04438}
+}</code></pre>
+      <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer><a href="../../">← Sabbir Mollah</a><p>The Telephone Game · ECCV 2026</p><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>

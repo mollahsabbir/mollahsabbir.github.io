@@ -1,5 +1,5 @@
 const ACCENT_COLOR = "#3eb667";
-const ERROR_COLOR = "#ff1010";
+const ERROR_COLOR = "#ef5350";
 
 const introMsg = "Sabbir Mollah is currently working on Assistive Technologies for visually impaired people. He is a professional with expertise in Machine Learning and Deep Learning research and development. He is currently working as a Machine Learning Engineer at Apurba Technologies Ltd."
 
@@ -8,7 +8,7 @@ var startTime;
 var wrongPresses = 0;
 
 function displayStringAsChars(introMsg){
-    var introMsgTag = document.getElementById("intro_msg");
+    var introMsgTag = document.getElementById("intro-msg");
     for(let i=0; i< introMsg.length; i++){
         var char = introMsg[i];
         var charTag = document.createElement("span");
@@ -16,10 +16,6 @@ function displayStringAsChars(introMsg){
         charTag.textContent = char;
         introMsgTag.appendChild(charTag);
     }
-}
-
-function colorCurrentCharacter(){
-    var currentCharacterTag = 1;
 }
 
 function setWPMScore(){
@@ -102,12 +98,30 @@ function main(){
     gameInitialization();
 
     document.addEventListener("keypress", function onEvent(event) {
+
+        // The input box is given input to display history of typed characters
+        var hiddenInput = document.getElementById("hiddenInput");
+        hiddenInput.focus();
+
+        
         onKeyboardButtonPress(event.key);
     });
 
     resetButtonElement = document.getElementById("reset-button");
     resetButtonElement.addEventListener("click", function onEvent(event) {
         onResetButtonPressed();
+    });
+
+    // Trigger mobile soft keyboard
+    var introMsgDivTag = document.getElementById("intro-msg-div");
+    var hiddenInput = document.getElementById("hiddenInput");
+    introMsgDivTag.addEventListener("click", function onEvent(event) {
+        console.log("Hello");
+        hiddenInput.style.visibility = 'visible';
+        hiddenInput.style.background = "white";
+        hiddenInput.style.border = "none";
+        hiddenInput.style.caretColor = "transparent";
+        hiddenInput.focus();
     });
 }
 

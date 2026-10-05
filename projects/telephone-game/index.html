@@ -22,7 +22,7 @@
   <nav class="project-nav" aria-label="Project navigation">
     <a class="nav-brand" href="#top">The Telephone Game<span class="nav-dot" aria-hidden="true"></span></a>
     <div class="nav-links">
-      <a href="#overview">Overview</a><a href="#method">Protocol</a><a href="#findings">Examples</a><a href="#results">Results</a><a href="#human-evaluation">Human study</a><a href="#presentation">Video &amp; poster</a><a href="#citation">Citation</a>
+      <a href="#overview">Overview</a><a href="#presentation">Video &amp; poster</a><a href="#method">Protocol</a><a href="#findings">Examples</a><a href="#results">Results</a><a href="#human-evaluation">Human study</a><a href="#citation">Citation</a>
     </div>
   </nav>
 
@@ -55,13 +55,24 @@
         <a href="figure.html?image=teaser" target="_blank" rel="noopener" aria-label="Open the Telephone Game example at full size"><img width="2400" height="573" src="../../static/telephone-game/figures/teaser.webp" alt="A unified model alternates text and image generation from a suitcase and a banana. The suitcase disappears after generation five, while the banana count grows to fourteen." fetchpriority="high"></a>
         <figcaption>The chain begins with <strong>“a suitcase left of a banana.”</strong> As the model alternates between generating images and describing them, the suitcase disappears and one banana becomes fourteen—revealing how meaning drifts across generations.</figcaption>
       </figure>
-      <dl class="benchmark-stats" aria-label="Benchmark at a glance">
-        <div><dt>7</dt><dd>systems in the full comparison</dd></div><div><dt>400</dt><dd>image–text pairs · NoCaps + DOCCI</dd></div><div><dt>20</dt><dd>generations in the evaluation horizon</dd></div><div><dt>6</dt><dd>recurring semantic failure modes</dd></div>
-      </dl>
       <div class="evaluation-gap"><h3>What a single pass misses</h3><ul class="compact-list"><li><strong>Generation benchmarks</strong> assess realism or prompt compliance in one image.</li><li><strong>Understanding benchmarks</strong> assess how well a model interprets an image.</li><li><strong>Cyclic evaluation</strong> tests whether the same model preserves meaning when these capabilities are composed.</li></ul></div>
-      <div class="consistency-callout"><figure><a href="figure.html?image=cross-consistency" target="_blank" rel="noopener" aria-label="Open the chess cross-consistency example at full size"><img width="1600" height="965" src="../../static/telephone-game/figures/cross-consistency.webp" alt="BAGEL identifies a winning chess position for white, but generates a generic board when asked to depict white winning." loading="lazy"></a></figure><div><p class="eyebrow">The gap in one example</p><h3>Understanding a concept does not guarantee faithful generation.</h3><p>BAGEL correctly identifies a winning chess position, yet generates a generic board when asked to depict the same concept. This mismatch is <strong>cross-inconsistency</strong>.</p></div></div>
+      <div class="consistency-callout"><figure><a href="figure.html?image=cross-consistency" target="_blank" rel="noopener" aria-label="Open the chess cross-consistency example at full size"><img width="1600" height="965" src="../../static/telephone-game/figures/cross-consistency.webp?v=white-2" alt="BAGEL identifies a winning chess position for white, but generates a generic board when asked to depict white winning." loading="lazy"></a></figure><div><p class="eyebrow">The gap in one example</p><h3>Understanding a concept does not guarantee faithful generation.</h3><p>BAGEL correctly identifies a winning chess position, yet generates a generic board when asked to depict the same concept. This mismatch is <strong>cross-inconsistency</strong>.</p></div></div>
     </section>
 
+
+    <section id="presentation" aria-labelledby="presentation-heading">
+      <div class="section-heading"><p class="eyebrow">Watch &amp; explore</p><h2 id="presentation-heading">The presentation and poster.</h2></div>
+      <div class="presentation-grid">
+        <article class="video-card">
+          <video controls playsinline preload="none" poster="../../static/telephone-game/video-preview.webp" aria-label="The Telephone Game research presentation" aria-describedby="video-description"><source src="../../static/telephone-game/video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="../../static/telephone-game/video.mp4">Download the presentation.</a></video>
+          <div class="media-caption"><div><h3>Video presentation <span class="duration">11:22</span></h3><p id="video-description">The motivation, protocol, and findings behind the Telephone Game.</p></div><a href="../../static/telephone-game/video.mp4" download>Download MP4 <span aria-hidden="true">↓</span></a></div>
+        </article>
+        <article class="poster-card">
+          <a class="poster-preview" href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener" aria-label="View the full Telephone Game poster PDF"><img width="1600" height="1143" src="../../static/telephone-game/poster-preview.webp" alt="Preview of the Telephone Game research poster with the evaluation protocol, semantic drift examples, and model results." loading="lazy"></a>
+          <div class="media-caption"><div><h3>Conference poster</h3><p>A visual overview of the work.</p></div><a href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener">View PDF <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </section>
 
     <section id="method" aria-labelledby="method-heading">
       <div class="section-heading"><p class="eyebrow">02 / The protocol</p><h2 id="method-heading">Follow the meaning through the whole chain.</h2><p class="section-intro">The Semantic Drift Protocol (SDP) starts with a caption or an image, then alternates text-to-image (T2I) and image-to-text (I2T). Each output becomes the next input; fidelity is always measured against the original.</p></div>
@@ -69,7 +80,7 @@
         <div class="chain-card"><h3>Text-first chain</h3><p class="chain"><span class="text-node">Text</span><span aria-hidden="true">→</span><span class="image-node">Image</span><span aria-hidden="true">→</span><span class="text-node">Text</span><span aria-hidden="true">→ …</span></p><p>Does the original description survive?</p></div>
         <div class="chain-card"><h3>Image-first chain</h3><p class="chain"><span class="image-node">Image</span><span aria-hidden="true">→</span><span class="text-node">Text</span><span aria-hidden="true">→</span><span class="image-node">Image</span><span aria-hidden="true">→ …</span></p><p>Does the original scene survive?</p></div>
       </div>
-      <figure class="figure-card protocol-figure"><a href="figure.html?image=protocol" target="_blank" rel="noopener" aria-label="Open the evaluation protocol figure at full size"><img width="2200" height="2239" src="../../static/telephone-game/figures/protocol.webp" alt="Text-first and image-first chains, with comparisons back to the original input. A red truck changes identity and position, while an image of a group gains people and new objects." loading="lazy"></a><figcaption>Text-first and image-first chains expose changes that a plausible individual output can hide. Comparisons to the original input track retention within and across modalities.</figcaption></figure>
+      <figure class="figure-card protocol-figure"><a href="figure.html?image=protocol" target="_blank" rel="noopener" aria-label="Open the evaluation protocol figure at full size"><img width="2200" height="2239" src="../../static/telephone-game/figures/protocol.webp?v=white-2" alt="Text-first and image-first chains, with comparisons back to the original input. A red truck changes identity and position, while an image of a group gains people and new objects." loading="lazy"></a><figcaption>Text-first and image-first chains expose changes that a plausible individual output can hide. Comparisons to the original input track retention within and across modalities.</figcaption></figure>
       <div class="subsection-heading"><h3>Two complementary views of semantic retention</h3><p>Embedding similarity captures the scene’s overall meaning; object-level evaluation checks its specific constraints.</p></div>
       <div class="metric-grid">
         <article class="metric-card"><p class="metric-label">MCD <span>↑ Higher is better</span></p><h3>Mean Cumulative Drift</h3><p>Average semantic similarity across generations and four modality mappings.</p><ul class="compact-list"><li><strong>MPNet</strong> for text ↔ text</li><li><strong>DINO</strong> for image ↔ image</li><li><strong>CLIP</strong> for cross-modal similarity</li></ul><p class="metric-note">Despite the name, a higher MCD score means stronger retention and less drift.</p></article>
@@ -127,19 +138,6 @@
       <details class="figure-details robustness-details"><summary>Checks beyond the main benchmark <span aria-hidden="true">+</span></summary><ul class="compact-list"><li><strong>Representation checks:</strong> alternative embedding backbones preserve the main trends.</li><li><strong>Prompt sensitivity:</strong> different recaptioning prompts retain the relative conclusions for BAGEL, Show-o, and VILA-U.</li><li><strong>Detector audit:</strong> OWLv2 achieves 81.0% agreement with human judgments; agreement remains similar at early and late generations.</li><li><strong>Additional models:</strong> Emu3 and proprietary systems are evaluated on smaller diagnostic subsets, separately from the full benchmark ranking.</li></ul></details>
     </section>
 
-    <section id="presentation" aria-labelledby="presentation-heading">
-      <div class="section-heading"><p class="eyebrow">Watch &amp; explore</p><h2 id="presentation-heading">The presentation and poster.</h2></div>
-      <div class="presentation-grid">
-        <article class="video-card">
-          <video controls playsinline preload="none" poster="../../static/telephone-game/video-preview.webp" aria-label="The Telephone Game research presentation" aria-describedby="video-description"><source src="../../static/telephone-game/video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="../../static/telephone-game/video.mp4">Download the presentation.</a></video>
-          <div class="media-caption"><div><h3>Video presentation <span class="duration">11:22</span></h3><p id="video-description">The motivation, protocol, and findings behind the Telephone Game.</p></div><a href="../../static/telephone-game/video.mp4" download>Download MP4 <span aria-hidden="true">↓</span></a></div>
-        </article>
-        <article class="poster-card">
-          <a class="poster-preview" href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener" aria-label="View the full Telephone Game poster PDF"><img width="1600" height="1143" src="../../static/telephone-game/poster-preview.webp" alt="Preview of the Telephone Game research poster with the evaluation protocol, semantic drift examples, and model results." loading="lazy"></a>
-          <div class="media-caption"><div><h3>Conference poster</h3><p>A visual overview of the work.</p></div><a href="../../static/telephone-game/poster.pdf" target="_blank" rel="noopener">View PDF <span aria-hidden="true">↗</span></a></div>
-        </article>
-      </div>
-    </section>
 
     <section id="citation" aria-labelledby="citation-heading">
       <div class="section-heading citation-heading"><div><p class="eyebrow">Use this work</p><h2 id="citation-heading">Citation</h2></div><button class="button copy-button" type="button" id="copy-citation" hidden>Copy BibTeX</button></div>

@@ -79,7 +79,8 @@ if (selected) {
     download.hidden = false;
   }, { once: true });
   picture.addEventListener('error', () => showError('This figure could not be loaded. Return to the project page to try again.'), { once: true });
-  picture.src = '../../static/telephone-game/figures/' + imageKey + '.webp';
+  const assetVersion = ['protocol', 'cross-consistency'].includes(imageKey) ? '?v=white-2' : '';
+  picture.src = '../../static/telephone-game/figures/' + imageKey + '.webp' + assetVersion;
   download.href = picture.src;
   download.download = imageKey + '.webp';
   zoom.addEventListener('click', () => {
